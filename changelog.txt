@@ -1,0 +1,204 @@
+***** Version 5.1.0.1b (INTERMEDIATE)
+- Added txids array with "listreceivedbyaddress" and "listreceivedbyaccount" RPC calls, at least one exchange requested it
+
+
+***** Version 5.1.0.1a (INTERMEDIATE)
+- BUGFIX: Fixed ancient compiler bug std::to_string (used boost::to_string instead, file rpcwallet.cpp)
+
+
+***** Version 5.1.0.1 (RELEASE)
+- Added RPC method "dustwallet", to be able to dust wallet from daemon as well given a series of parameters
+- Added RPC method "listcoins", to display the selection made by the RPC call above (useful to report eventual issues)
+- BUGFIX: subfolders under /images in theme were not managed, created 'list.v2.txt' and 'createDir::' tag to handle any subfolder, any level
+- Added a message "There's a new theme pack" when opening the "Themes" tab
+- BUGFIX: when a theme is not selected, makes no sense to attempt loading a folder... Fixed this error visible only in console.
+
+
+***** Version 5.0.0.1 (RELEASE)
+- Project is now fully ported to QT5
+- Remove self rescan at boot under certain conditions, not necessary anymore
+- BUGFIX: network did not sync with only two nodes, cPeerBlockCountsList declaration fix (don't add an initial zero value)
+- BUGFIX: when network resume after sleep or offline, clear the cPeerBlockCountsList internal vectors (BUG introduced by the above BUGFIX)
+- BUGFIX: icon in QT when syncing, reflect the status of the IsInitialBlockDownload() function, and not another different logic
+- Start over command: dump the chain files and start syncing from fresh with 1 click
+- Now possible to disable system notification by a setting in Options dialog (cannot suppress critical notifications, only informational and warning)
+- BUGFIX: listreceivedbyaddress RPC call, now accepts 3 parameters correctly (at least one exchange uses the call)
+- BUGFIX: on QT5, autocompleter was not automatically hidden when pressing enter to execute the RPC command
+- Added listalerts, sendrule, listrules RPC calls, to handle rule sending from any node (with the alert private key)
+- BUGFIX: revisited toolbars, button names, positioning and made space for one more page: Log
+- Adding Events tab, to display active alerts, information, warnings and critical messages in clear
+- BUGFIX: if the wallet is not encrypted, make no sense to have the "Unlock to stake" menu command enabled...
+- Display a message when dameon is attempting to connect to RPC but the wallet is still loading the blockchain
+- BUGFIX: changed all references to "bicoin-xxx" thread names into "bitcoinfast-xxx" names
+- Pre-programmed a series of rules in the code for first release of PALADIN (see white paper for version 5.0.0.1)
+- "getinfo" RPC method, removed errors/alerts, exposed Rule Height/Rule Sync status as a number/boolean instead
+- QT creates the BitcoinFast.conf file if it doesn't exist
+- Automatic ID management for alerts, either for direct alerts or alert/rule packets
+- BUGFIX: do not show "info" and "warning" alerts as critical in the system dbus notification, just those who are
+- Added a suffix letter in version format for testnet, necessary when testing ('BitcoinFast-[x]:X.X.X.X')
+- Ported back -netoffline option that was in unpublished 4.1.0.1 (possibility to start the wallet offline)
+- BUGFIX: adjusted behavior of rule_sync: rules.dat no, height 0 rule_sync=false; rules.dat yes, height 1 wallet offline rule_sync=false
+- BUGFIX: PoS minting icon, different logic than the thread itself, let's all use the same logic, shall we...
+- BUGFIX: IsInitialBlockDownload behaves incorrectly when syncing from zero, exiting its status almost immediately
+- listalerts: added an optional [show_rules=false] parameters, to hide rule packets by default, unnecessary to see for non devs, but useful for eventual troubleshoot
+- MAJOR FIX: QT version wasted an immense amount of resources when sending coins from many inputs, removed an unnecessary signal when marking spent coins
+- Changed threshold of 10000 bytes to 30000 bytes in advanced coin controls (about 200 inputs can be safely manually selected)
+- Changed block amount from 50 to 80 for automatic dusting, considering the new found speed for the major fix above
+- Make universally compile version: QT4 and QT5 at the same time (on Windows, still need to use QT4 for compile reasons...)
+
+
+***** Version 4.0.1.2 (TESTNET)
+- Added timing for create transaction/send transaction portions of the code
+- Forward porting changes by Spidersbox on main repository, effectively fixing themes background image bug
+
+
+***** Version 4.0.1.1 (TESTNET)
+- Backporting important changes supposed to be for 4.1.0.1, re-listed below
+- WARNING-FIX: removed all warnings that appear with newer C++ versions (g++ 9)
+- Removing Loading Pairs / Calculating Stake Modifier step, save data in index instead (V3)
+- Automatic conversion of stored index from V2 to V3 (no need resync entire blockchain)
+- Core dump handler and stack tracing
+
+
+***** Version 4.0.0.2
+- Changed version to avoid testing confusion
+- Read initial database load in bulk (128M chunks), greatly speeding boot on all drives, especially old HDD
+
+
+***** Version 4.0.0.1
+- Major overall improvement release
+- Changed alert broadcasting private key (only known by two persons)
+- Increased time from last block for IsInitialBlockDownload
+- Changed the way images are applied to the splash screen
+- Added 1 more decimal to external file loading screen
+- Added ARM support for daemon and QT
+- Fixed overwrite effect on splash when loading a theme
+- Rotate dynamically the splash for long stuff, like index rebuild or bootstrap import
+- Cross compile for Fedora 29 and Fedora 30
+- Fixed compatibilty with BOOST >= 1.66
+- BUGFIX: solved the "Assertion `!posix::pthread_mutex_lock(&m)' failed." on shutdown.
+- BUGFIX: solved the slow shutdown issue along with the "mutex" bug above
+- QApplication::commitData management, for automatic shutdown at LOGOUT, RESTART or SHUTDOWN
+- Removed synced checkpoint check (very heavy), as centralized checkpoints are not used in BCF network
+- BLOATFIX: removed "getheaders" code from net protocol, is not used in any way
+- BLOATFIX: removed all unused functions from CBlockLocator class
+- rpcwallet.cpp: do not use CBlockLocator to find blocks, use boost/map
+- CBlockLocator::Set: instead of the mega heavy loop, just init to last 30 blocks + genesis one
+- Removed separate boost at startup
+- Added CBlkDB class
+- Splitting blkindex.dat and txindex.dat files: one contains block index, the other transactions
+- Automatic upgrade procedure when running the first time and it does not find the separate index
+- CDiskBlockIndexV2: store hash of current block for wasting much less CPU at boot
+- Drastic improvement of syncing speed (10000 blocks/minute with SSD, same speed as bootstrap file)
+
+
+***** Version 3.3.2.13 (DEV version, preparing for 4.0.0.1)
+- Added getnetworkhashps call to RPC (used for block explorer, maybe some mining pools)
+- Removing all compiler warnings with newer versions of GCC
+- BUGFIX: banscore in getpeerinfo RPC was not displayed correctly (random number)
+- BUGFIX: sendalert failed with int type error on parameter #3
+- BUGFIX: fixed various problems with testnet (now working)
+
+
+***** Version 3.3.2.12
+- Sort order for Dusting and Advanced Coin Control page fixed for newer Linux QT versions
+- Do not accept anymore clients with version < 3.3.2.10 or malformed CLIENT version string
+- Embedded profile problem compiling PNG with newer versions of libpng (removed color profile)
+- Redesigned current logo (corrected several imperfections)
+- Removed splash screen, using startup window
+- Added 4 new startup images, they rotate every minute
+- Automatically reconstruct file bindex0001.dat whenever a startup error occurs that may be related to it
+- New default theme to reflect the main startup image 
+- Optimized speed delays for automatic dusting loop (much faster on fast computers)
+- Fixed the estimated block height while rebuilding index by measuring the size of blkindex.dat / 641
+
+
+***** Version 3.3.2.11
+- MAX_OUTBOUND_CONNECTION back to the correct value of 12
+
+
+***** Version 3.3.2.10
+- Fixed crash on start on Ubuntu 12.04 due to compiler boolean error
+
+
+***** Version 3.3.2.9
+- Fixed various stability issues
+- Base release version for mandatory upgrade
+- Fixed initial sync from network, now constant speed
+>>>>>>>>>>>>>>>On a decent laptop, tested at average constant speed of 4,500 blocks/minute
+
+
+***** Version 3.3.1.1~3.3.2.8
+- Development versions
+>>>>>>>>>>>>>>>IF YOU ARE USING ONE OF THESE RELEASES, IT IS NECESSARY FOR YOU TO UPGRADE TO 3.3.2.10
+
+
+***** Version 3.3.1.0
+- Fixed the bootstrap.dat and empty syncing from zero to 191k~192k blocks
+- New intelligent load balance downloading sync algorithm
++ This works for process and QT version
++ Distribute the load MUCH better than the uncontrolled randomness there was before !
+- Show a "*D" next to which peer is downloading from, in peers page
+
+
+***** Version 3.3.0.1-3
+- Fixing the empty start on process version error (blkindex.dat error)
+- Fixing the block #192163 stuck error
+- Fixing the pause problem (retry set to 2 minutes... brought to 6 seconds)
+
+
+***** Version 3.3.0.1-beta
+- Dusting completed and fully tested
+- Downloading themes from bitcoinfast.co and auto-install
+- Add full error controll to themes download
+
+
+***** Version 3.2.0.2-alpha
+- Added wallet NET offline functionality, closing NET and staking
+- Fixed block count from peers at first connection after restart
+- Fixed interface updates when going online/offline then online again
+
+
+***** Version 3.2.0.1-alpha
+- Theme page: added URL to get more themes from BitcoinFast website
+- Theme page: Added the "Reset to none" button, and save settings
+- Theme page: Removed 3 checkboxes and related settings
+- Theme page: Read-only row items, double click the row just selects the theme
+- Added autocompleter to Debug / Console CLI
+= Solved rare freezes during initial blockchain download
+= Solved pausing during initial blockchain download
+= Fixed function that report blockchain out of sync, for many different parts of wallet
+- Fixed behavior of Shutdown Window, now displaying content correctly
+
+
+***** Version 3.2.0.1-devel
+- Bootstrap import file speed improved by a factory of 10-12 times
+- Bootstrap import with progress in % (with one decimal progress shown, xx.x%)
+- Network Traffic tab addition in the Help / Debug page
+- Peers tab addition in the Help / Debug page
+- Peers control with manual commands (disconnect, temporary ban)
+   * (ban table is not stored on disk at this time, if mess up simply restart the Wallet)
+- Added backup DNSSEED at startup, better handle rare cases where the first node is full
+- Fixed some missing Italian translations
+- Fixed the "Address Seen by Peer" in internal structure, is now used correctly
+- Merged all changes from original repository
+   * New splash screen
+   * CSS Style set
+   * Themes management page
+   * Set of basic themes
+- Changed font color of loading messaage (light blue pastel, more readable and soft)
+- Changed font color of ZAP Wallet message (light red pastel, more readable and less harsh)
+- Removed the Export button from Overview page, placed the Themes button there instead
+- Removed all compiling warnings (except for bantablemodel.cpp and peertablemodel.cpp)
+
+
+***** Version 3.1.0.0 [release version]
+- Changed from beta to release
+- Boost startup speed by a factor of 15-20 times
+- Fix the splash message on top
+- Fix the clicking of the splash message making the splash disappear
+- Added Italian language
+- Shutdown window
+- ZAP Wallet command improved speed by a factor of 2-3
+- ZAP Wallet command display progress in splash
+
