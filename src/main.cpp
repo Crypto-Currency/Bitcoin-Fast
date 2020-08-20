@@ -1005,7 +1005,8 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
-    return max(0, (nCoinbaseMaturity+20) - GetDepthInMainChain());
+//    return max(0, (nCoinbaseMaturity+20) - GetDepthInMainChain());
+    return max(0, (nCoinbaseMaturity+1) - GetDepthInMainChain());
 }
 
 
@@ -2185,12 +2186,14 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
     bnBestChainTrust = pindexNew->bnChainTrust;
     nTimeBestReceived = GetTime();
     nTransactionsUpdated++;
-    printf("SetBestChain: new best=%s  height=%d  trust=%s  date=%s\n",
-      hashBestChain.ToString().c_str(), nBestHeight, bnBestChainTrust.ToString().c_str(),
-      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()).c_str());
+    if(fDebug)
+    {
+      printf("SetBestChain: new best=%s  height=%d  trust=%s  date=%s\n",
+        hashBestChain.ToString().c_str(), nBestHeight, bnBestChainTrust.ToString().c_str(),
+        DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()).c_str());
 
 	printf("Stake checkpoint: %x\n", pindexBest->nStakeModifierChecksum);
-
+    }
 	if (blockSyncingTraceTiming && blockSyncingSetBestChain)
 		fprintf(stderr, "SetBestChain()/[chk 3] lasted %15" PRI64d "ms\n", GetTimeMillis() - nStart);
     nStart = GetTimeMillis();
@@ -4117,7 +4120,8 @@ std::string testver=incomingver.substr(index); // first chr should be ':'
 			blockCount++;
 #endif
 
-			printf("received block %s\n", block.GetHash().ToString().substr(0,20).c_str());
+                        if(fDebug)
+			  printf("received block %s\n", block.GetHash().ToString().substr(0,20).c_str());
 			// block.print();
 			//fprintf(stderr, "Received block %d from %d\n", block.nTime, pfrom->GetId());
 
