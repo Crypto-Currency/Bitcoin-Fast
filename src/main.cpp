@@ -3109,11 +3109,11 @@ bool LoadBlockIndex(bool fAllowNew)
     {
         bnProofOfStakeLimit = bnProofOfStakeLimitTestNet; // 0x00000fff PoS base target is fixed in testnet
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 0x0000ffff PoW base target is fixed in testnet
-        nStakeMinAge = 20 * 60; // test net min age is 20 min
+        nStakeMinAge = 60 * 20; // test net min age is 20 min
         nStakeMaxAge = 60 * 60; // test net min age is 60 min
-		nModifierInterval = 60; // test modifier interval is 2 minutes
-        nCoinbaseMaturity = 10; // test maturity is 10 blocks
-        nStakeTargetSpacing = 3 * 60; // test block spacing is 3 minutes
+	nModifierInterval = 60; // test modifier interval is 1 minutes
+//        nCoinbaseMaturity = 10; // test maturity is 10 blocks
+        nStakeTargetSpacing = 60; // test block spacing is 60 seconds
     }
 
     //
@@ -3157,9 +3157,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1597796611;
+        block.nTime    = 1597961664;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 111702;
+        block.nNonce   = 1577867;
 
         //// debug print
         block.print();
@@ -3184,7 +3184,7 @@ bool LoadBlockIndex(bool fAllowNew)
 		       }
         }
 
-        assert(block.hashMerkleRoot == uint256("a431c30e85e70eb2747b9ff08a86d59fae4afdb3d3b6b4288b4b8e78ed790dea"));
+        assert(block.hashMerkleRoot == uint256("0xdfc0df472ccb1627ada6751d8cfabe14dba72018c172c6ae2bbac252ab670d13"));
 
         //// debug print
         block.print();
@@ -5431,21 +5431,93 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 //const int YEARLY_BLOCKCOUNT = 0;	// 365 * 0
 int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTime, int nHeight)
 {
-	int64 nRewardCoinYear;
+  uint64 nRewardCoinYear;
 
 // by Simone: we also have dynamic reward now
-	if (CRules::parseRules(nHeight, CRules::RULE_POS_PERCENT, &nMintProofOfStake, MAX_MINT_PROOF_OF_STAKE))
-	{
-		nRewardCoinYear = nMintProofOfStake;
-	}
-	else
-	{
-		nRewardCoinYear = nMintProofOfStake;
-	}
+  if (CRules::parseRules(nHeight, CRules::RULE_POS_PERCENT, &nMintProofOfStake, MAX_MINT_PROOF_OF_STAKE))
+  {
+    nRewardCoinYear = nMintProofOfStake;
+  }
+  else
+  {
+// reduce by 1% a year
+// 525,600 minutes in a year (block time is 1 minute) = 525,600 blocks. we will use 530,000
+// milliseconds is a non-leep year 31,536,000,000
+    double yearpercent;
+    int64 steps=530000;
+    if(fTestNet)
+      steps=30;
+
+    yearpercent = .25;
+    if (nHeight > steps)
+    {
+      yearpercent = .24;
+    }
+    if (nHeight > steps *2)
+    {
+      yearpercent = .23;
+    }
+    if (nHeight > steps *3)
+    {
+      yearpercent = .22;
+    }
+    if (nHeight > steps *4)
+    {
+      yearpercent = .21;
+    }
+    if (nHeight > steps *5)
+    {
+      yearpercent = .20;
+    }
+    if (nHeight > steps *6)
+    {
+      yearpercent = .19;
+    }
+    if (nHeight > steps *7)
+    {
+      yearpercent = .18;
+    }
+    if (nHeight > steps *8)
+    {
+      yearpercent = .17;
+    }
+    if (nHeight > steps *9)
+    {
+      yearpercent = .16;
+    }
+    if (nHeight > steps *10)
+    {
+      yearpercent = .15;
+    }
+    if (nHeight > steps *11)
+    {
+      yearpercent = .14;
+    }
+    if (nHeight > steps *12)
+    {
+      yearpercent = .13;
+    }
+    if (nHeight > steps *13)
+    {
+      yearpercent = .12;
+    }
+    if (nHeight > steps *14)
+    {
+      yearpercent = .11;
+    }
+    if (nHeight > steps *15)
+    {
+      yearpercent = .1;
+    }
+
+    nRewardCoinYear = yearpercent * COIN;
+  }
 	int64 nSubsidy = nCoinAge * nRewardCoinYear / 365;
 	if (fDebug && GetBoolArg("-printcreation"))
 		printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRI64d " nBits=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nBits);
 
+//debug testing
+printf("GetProofOfStakeReward: height %d nRewardCoinYear %d\n",nHeight,nRewardCoinYear);
     return nSubsidy;
 }
 

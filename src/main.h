@@ -30,8 +30,8 @@ static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
-static const int64 MIN_TX_FEE = 0.001 * CENT;
-static const int64 MIN_RELAY_TX_FEE = 0.001 * CENT;
+static const int64 MIN_TX_FEE = 1 * CENT;
+static const int64 MIN_RELAY_TX_FEE = 1 * CENT;
 static const int64 MAX_MONEY = 420000000 * COIN;		// 420,000,000
 static const int64 MAX_MINT_PROOF_OF_STAKE = 0.25 * COIN;	// 15% annual interest
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
@@ -46,8 +46,9 @@ static const int fHaveUPnP = true;
 static const int fHaveUPnP = false;
 #endif
 
-static const uint256 hashGenesisBlockOfficial("0x0000050a08d56d465a8818e0bd72cfc80bc115cc71a4084ebf5c9c249ffa9c72");
-static const uint256 hashGenesisBlockTestNet ("0x0000050a08d56d465a8818e0bd72cfc80bc115cc71a4084ebf5c9c249ffa9c72");
+static const uint256 hashGenesisBlockOfficial("0x000006c84e9e3fc27dffe8c0a0a37a12c0c54c2c777e486d9d4ee38e8cbd0d26");
+static const uint256 hashGenesisBlockTestNet("0x000006c84e9e3fc27dffe8c0a0a37a12c0c54c2c777e486d9d4ee38e8cbd0d26");
+
 
 // by Simone: new variables that are dynamicized with PALADIN system
 extern int nPaladinRuleHeight;
