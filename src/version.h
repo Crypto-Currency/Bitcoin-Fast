@@ -19,14 +19,14 @@ static const int CLIENT_VERSION =
 
 // as of version 3.3.2.10, we do not accept anymore older version of clients, as they are forked and likely messing the network up
 static const int MIN_CLIENT_VERSION =
-                           1000000 * 3
-                         +   10000 * 3
-                         +     100 * 2
-                         +       1 * 10;
+                           1000000 * 4
+                         +   10000 * 0
+                         +     100 * 0
+                         +       1 * 0;
 
 // as of version 5.0.0.1, we have dynamicized older version acceptance of clients, with PALADIN system capabilities, define a constant here
 static const int PALADIN_CLIENT_VERSION =
-                           1000000 * 5
+                           1000000 * 4
                          +   10000 * 0
                          +     100 * 0
                          +       1 * 1;
