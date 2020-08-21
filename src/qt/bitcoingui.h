@@ -221,7 +221,7 @@ private slots:
     void gotoDustingPage();
     /** Switch to alert page */
     void gotoAlertsPage();
-    // Open BitcoinFast.conf
+    // Open Bitcoin-Fast.conf
     void openConfig();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();

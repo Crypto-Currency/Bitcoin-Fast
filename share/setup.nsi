@@ -10,7 +10,7 @@ SetCompressor /SOLID lzma
 !define URL http://
 
 # MUI Symbol Definitions
-!define MUI_ICON "../share/pixmaps/bitcoinfast.ico"
+!define MUI_ICON "../share/pixmaps/bitcoin-fast.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
@@ -19,8 +19,8 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER BitcoinFast
-!define MUI_FINISHPAGE_RUN $INSTDIR\BitcoinFast-qt.exe
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER Bitcoin-Fast
+!define MUI_FINISHPAGE_RUN $INSTDIR\Bitcoin-Fast-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -45,14 +45,14 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile BitcoinFast-win32-setup.exe
-InstallDir $PROGRAMFILES\BitcoinFast
+OutFile Bitcoin-Fast-win32-setup.exe
+InstallDir $PROGRAMFILES\Bitcoin-Fast
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion 0.3.2.0
-VIAddVersionKey ProductName BitcoinFast
+VIAddVersionKey ProductName Bitcoin-Fast
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -66,18 +66,18 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File ../release/BitcoinFast-qt.exe
+    File ../release/Bitcoin-Fast-qt.exe
     File /oname=license.txt ../COPYING
     File /oname=readme.txt ../doc/README_linux.txt
     SetOutPath $INSTDIR\daemon
-    File ../src/bitcoinfastd.exe
+    File ../src/bitcoin-fastd.exe
     SetOutPath $INSTDIR\src
     File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
     # Remove old wxwidgets-based- executable and locales:
-    Delete /REBOOTOK $INSTDIR\BitcoinFast.exe
+    Delete /REBOOTOK $INSTDIR\Bitcoin-Fast.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -87,8 +87,8 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\BitcoinFast.lnk" $INSTDIR\BitcoinFast-qt.exe
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall BitcoinFast.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Bitcoin-Fast.lnk" $INSTDIR\Bitcoin-Fast-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Bitcoin-Fast.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
@@ -99,11 +99,11 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
 
-    # BitcoinFast: URI handling disabled for 0.6.0
-        WriteRegStr HKCR "BitcoinFast" "URL Protocol" ""
-        WriteRegStr HKCR "BitcoinFast" "" "URL:BitcoinFast"
-        WriteRegStr HKCR "BitcoinFast\DefaultIcon" "" $INSTDIR\BitcoinFast-qt.exe
-        WriteRegStr HKCR "BitcoinFast\shell\open\command" "" '"$INSTDIR\BitcoinFast-qt.exe" "$$1"'
+    # Bitcoin-Fast: URI handling disabled for 0.6.0
+        WriteRegStr HKCR "Bitcoin-Fast" "URL Protocol" ""
+        WriteRegStr HKCR "Bitcoin-Fast" "" "URL:Bitcoin-Fast"
+        WriteRegStr HKCR "Bitcoin-Fast\DefaultIcon" "" $INSTDIR\Bitcoin-Fast-qt.exe
+        WriteRegStr HKCR "Bitcoin-Fast\shell\open\command" "" '"$INSTDIR\Bitcoin-Fast-qt.exe" "$$1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -121,7 +121,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\BitcoinFast-qt.exe
+    Delete /REBOOTOK $INSTDIR\Bitcoin-Fast-qt.exe
     Delete /REBOOTOK $INSTDIR\license.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -131,9 +131,9 @@ SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall BitcoinFast.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\BitcoinFast.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\BitcoinFast.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Bitcoin-Fast.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Bitcoin-Fast.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Bitcoin-Fast.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -141,7 +141,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "BitcoinFast"
+    DeleteRegKey HKCR "Bitcoin-Fast"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

@@ -15,10 +15,10 @@
 
 ## Once you've got the right hardware and software we can compile the Windows client
 
-## Clone local copies of bitcoinfast and gitian source-codes
+## Clone local copies of bitcoin-fast and gitian source-codes
 
 4. Enter Ubuntu terminal
-5. git clone git://github.com/crypto-currency/bitcoinfast bitcoin
+5. git clone git://github.com/crypto-currency/bitcoin-fast bitcoin
 6. git clone git://github.com/devrandom/gitian-builder.git gitian
 7. mkdir gitian/inputs
 8. zip -r gitian/inputs/bitcoin-1.4.0.zip bitcoin

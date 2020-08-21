@@ -1,4 +1,4 @@
-bitcoinfast-qt: Qt4 GUI for BitcoinFast
+bitcoin-fast-qt: Qt4 GUI for Bitcoin-Fast
 ===============================
 
 Build instructions
@@ -29,9 +29,9 @@ then do the first step again. After installation completed, then execute the fol
     qmake
     make
 
-Alternatively, install Qt Creator and open the `bitcoinfast-qt.pro` file.
+Alternatively, install Qt Creator and open the `bitcoin-fast-qt.pro` file.
 
-An executable named `bitcoinfast-qt` will be built.
+An executable named `bitcoin-fast-qt` will be built.
 
 
 Windows

@@ -5,25 +5,25 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About BitcoinFast</source>
-        <translation>Informazioni su BitcoinFast</translation>
+        <source>About Bitcoin-Fast</source>
+        <translation>Informazioni su Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;BitcoinFast&lt;/b&gt; version</source>
-        <translation>Versione &lt;b&gt;BitcoinFast&lt;/b&gt;</translation>
+        <source>&lt;b&gt;Bitcoin-Fast&lt;/b&gt; version</source>
+        <translation>Versione &lt;b&gt;Bitcoin-Fast&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>
 Copyright © 2009-2012 Bitcoin Developers
 Copyright © 2012 PeerCoin Developers
-Copyright © 2014 BitcoinFast Developers
+Copyright © 2014 Bitcoin-Fast Developers
 </source>
         <translation>
 Copyright © 2009-2012 Sviluppatori Bitcoin
 Copyright © 2012 Sviluppatori PeerCoin
-Copyright © 2014 Sviluppatori BitcoinFast
+Copyright © 2014 Sviluppatori Bitcoin-Fast
 </translation>
     </message>
     <message>
@@ -70,8 +70,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your BitcoinFast addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Questi sono gli indirizzi di BitcoinFast per ricevere pagamenti. Si consiglia di inviare ogni volta un indirizzo diverso, in modo da tenere traccia di chi vi paga.</translation>
+        <source>These are your Bitcoin-Fast addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Questi sono gli indirizzi di Bitcoin-Fast per ricevere pagamenti. Si consiglia di inviare ogni volta un indirizzo diverso, in modo da tenere traccia di chi vi paga.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -85,8 +85,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a BitcoinFast address</source>
-        <translation>Firma messaggio per comprovare la ownership dell&apos;indirizzo BitcoinFast</translation>
+        <source>Sign a message to prove you own a Bitcoin-Fast address</source>
+        <translation>Firma messaggio per comprovare la ownership dell&apos;indirizzo Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -100,8 +100,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified BitcoinFast address</source>
-        <translation>Verifica il messaggio per assicurarti che sia stato firmato con uno specifico indirizzo BitcoinFast</translation>
+        <source>Verify a message to ensure it was signed with a specified Bitcoin-Fast address</source>
+        <translation>Verifica il messaggio per assicurarti che sia stato firmato con uno specifico indirizzo Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -286,8 +286,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="-56"/>
-        <source>BitcoinFast will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>BitcoinFast si chiudera&apos; per completare il processo di cifratura. Ricorda che la cifratura non protegge mai completamente i tuoi coins dall&apos;essere rubati da malware nel computer.</translation>
+        <source>Bitcoin-Fast will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>Bitcoin-Fast si chiudera&apos; per completare il processo di cifratura. Ricorda che la cifratura non protegge mai completamente i tuoi coins dall&apos;essere rubati da malware nel computer.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -353,8 +353,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="-325"/>
-        <source>BitcoinFast - Wallet  </source>
-        <translation>Portafoglio - BitcoinFast  </translation>
+        <source>Bitcoin-Fast - Wallet  </source>
+        <translation>Portafoglio - Bitcoin-Fast  </translation>
     </message>
     <message>
         <location line="+615"/>
@@ -582,8 +582,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about BitcoinFast</source>
-        <translation>Mostra informazioni su BitcoinFast</translation>
+        <source>Show information about Bitcoin-Fast</source>
+        <translation>Mostra informazioni su Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -640,13 +640,13 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="-102"/>
-        <source>Send coins to a BitcoinFast address</source>
-        <translation>Invia coins ad un indirizzo BitcoinFast</translation>
+        <source>Send coins to a Bitcoin-Fast address</source>
+        <translation>Invia coins ad un indirizzo Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+75"/>
-        <source>Modify configuration options for BitcoinFast</source>
-        <translation>Modifica opzioni di configurazione di BitcoinFast</translation>
+        <source>Modify configuration options for Bitcoin-Fast</source>
+        <translation>Modifica opzioni di configurazione di Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -684,8 +684,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
         <translation>&amp;Verifica messaggio...</translation>
     </message>
     <message>
-        <source>BitcoinFast</source>
-        <translation type="vanished">BitcoinFast</translation>
+        <source>Bitcoin-Fast</source>
+        <translation type="vanished">Bitcoin-Fast</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -693,8 +693,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     </message>
     <message>
         <location line="-30"/>
-        <source>&amp;About BitcoinFast</source>
-        <translation>&amp;Dettagli BitcoinFast</translation>
+        <source>&amp;About Bitcoin-Fast</source>
+        <translation>&amp;Dettagli Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -739,15 +739,15 @@ Questo prodotto include software sviluppato dal progetto OpenSSL, per utilizzo i
     <message>
         <location line="+0"/>
         <location line="+61"/>
-        <source>BitcoinFast client</source>
-        <translation>BitcoinFast client</translation>
+        <source>Bitcoin-Fast client</source>
+        <translation>Bitcoin-Fast client</translation>
     </message>
     <message numerus="yes">
         <location line="+71"/>
-        <source>%n active connection(s) to BitcoinFast network</source>
+        <source>%n active connection(s) to Bitcoin-Fast network</source>
         <translation>
-            <numerusform>%n connessione attiva alla rete BitcoinFast</numerusform>
-            <numerusform>%n connessioni attive alla reteBitcoinFast</numerusform>
+            <numerusform>%n connessione attiva alla rete Bitcoin-Fast</numerusform>
+            <numerusform>%n connessioni attive alla reteBitcoin-Fast</numerusform>
         </translation>
     </message>
     <message>
@@ -844,7 +844,7 @@ Indirizzo: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid BitcoinFast address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Bitcoin-Fast address or malformed URI parameters.</source>
         <translation>L&apos;URI non puo&apos; essere interpretato! Questo puo&apos; essere causato da un indirizzo invalido oppure un URI malformato.</translation>
     </message>
     <message>
@@ -1038,8 +1038,8 @@ Orphans removed: %3
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+162"/>
-        <source>A fatal error occurred. BitcoinFast can no longer continue safely and will quit.</source>
-        <translation>E&apos; occorso un errore di sistema. BitcoinFast non puo&apos; continuare in sicurezza e sara&apos; terminato.</translation>
+        <source>A fatal error occurred. Bitcoin-Fast can no longer continue safely and will quit.</source>
+        <translation>E&apos; occorso un errore di sistema. Bitcoin-Fast non puo&apos; continuare in sicurezza e sara&apos; terminato.</translation>
     </message>
     <message>
         <source>&quot;Do NOT shutdown your PC until this window disappears&quot;</source>
@@ -1544,8 +1544,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>The entered address &quot;%1&quot; is not a valid BitcoinFast address.</source>
-        <translation>L&apos;indirizzo inserito &quot;%1&quot; non e&apos; valido per la rete BitcoinFast.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Bitcoin-Fast address.</source>
+        <translation>L&apos;indirizzo inserito &quot;%1&quot; non e&apos; valido per la rete Bitcoin-Fast.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1563,8 +1563,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+511"/>
         <location line="+12"/>
-        <source>BitcoinFast-Qt</source>
-        <translation>BitcoinFast-Qt</translation>
+        <source>Bitcoin-Fast-Qt</source>
+        <translation>Bitcoin-Fast-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1626,13 +1626,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start BitcoinFast after logging in to the system.</source>
-        <translation>Avvia BitcoinFast automaticamente dopo aver fatto login nel sistema.</translation>
+        <source>Automatically start Bitcoin-Fast after logging in to the system.</source>
+        <translation>Avvia Bitcoin-Fast automaticamente dopo aver fatto login nel sistema.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start BitcoinFast on system login</source>
-        <translation>&amp;Avvia BitcoinFast al login sistema</translation>
+        <source>&amp;Start Bitcoin-Fast on system login</source>
+        <translation>&amp;Avvia Bitcoin-Fast al login sistema</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1661,8 +1661,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the BitcoinFast client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Apri automaticamente la porte BitcoinFast nel router. Questo funziona solamente se il tuo router supporta UPnP e la funzione e&apos; abilitata.</translation>
+        <source>Automatically open the Bitcoin-Fast client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Apri automaticamente la porte Bitcoin-Fast nel router. Questo funziona solamente se il tuo router supporta UPnP e la funzione e&apos; abilitata.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1671,8 +1671,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the BitcoinFast network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Connetti alla rete BitcoinFast via SOCKS proxy (per esempio quando collegati attraverso Tor).</translation>
+        <source>Connect to the Bitcoin-Fast network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Connetti alla rete Bitcoin-Fast via SOCKS proxy (per esempio quando collegati attraverso Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1746,8 +1746,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting BitcoinFast.</source>
-        <translation>La lingua dell&apos;interfaccia utente puo&apos; essere impostata qui. Questo settaggio richiede il riavvio di BitcoinFast.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin-Fast.</source>
+        <translation>La lingua dell&apos;interfaccia utente puo&apos; essere impostata qui. Questo settaggio richiede il riavvio di Bitcoin-Fast.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1761,8 +1761,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show BitcoinFast addresses in the transaction list or not.</source>
-        <translation>Mostra indirizzi di BitcoinFast nella lista transazioni oppure no.</translation>
+        <source>Whether to show Bitcoin-Fast addresses in the transaction list or not.</source>
+        <translation>Mostra indirizzi di Bitcoin-Fast nella lista transazioni oppure no.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1808,8 +1808,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting BitcoinFast.</source>
-        <translation>Questa impostazione avra&apos; effetto solo dopo il riavvio di BitcoinFast.</translation>
+        <source>This setting will take effect after restarting Bitcoin-Fast.</source>
+        <translation>Questa impostazione avra&apos; effetto solo dopo il riavvio di Bitcoin-Fast.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1825,14 +1825,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Form</translation>
     </message>
     <message>
-        <source> Click to go to BitcoinFast Home page. </source>
-        <translation type="vanished"> Clicca qui per andare al Sito di BitcoinFast. </translation>
+        <source> Click to go to Bitcoin-Fast Home page. </source>
+        <translation type="vanished"> Clicca qui per andare al Sito di Bitcoin-Fast. </translation>
     </message>
     <message>
         <location line="+48"/>
         <location line="+292"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the BitcoinFast network after a connection is established, but this process has not completed yet.</source>
-        <translation>Le informazioni mostrate possono non essere accurate. Il tuo portafoglio si sincronizza automaticamente alla rete BitcoinFast dopo che una connessione e&apos; stabilita, ma questo processo non e&apos; ancora completo.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin-Fast network after a connection is established, but this process has not completed yet.</source>
+        <translation>Le informazioni mostrate possono non essere accurate. Il tuo portafoglio si sincronizza automaticamente alla rete Bitcoin-Fast dopo che una connessione e&apos; stabilita, ma questo processo non e&apos; ancora completo.</translation>
     </message>
     <message>
         <location line="-247"/>
@@ -2154,8 +2154,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the BitcoinFast-Qt help message to get a list with possible BitcoinFast command-line options.</source>
-        <translation>Mostra il messaggio di aiuto per BitcoinFast-Qt con una lista delle possibili opzioni da linea di comando.</translation>
+        <source>Show the Bitcoin-Fast-Qt help message to get a list with possible Bitcoin-Fast command-line options.</source>
+        <translation>Mostra il messaggio di aiuto per Bitcoin-Fast-Qt con una lista delle possibili opzioni da linea di comando.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2297,13 +2297,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-104"/>
-        <source>BitcoinFast - Debug window</source>
-        <translation>BitcoinFast - Finestra di Debug</translation>
+        <source>Bitcoin-Fast - Debug window</source>
+        <translation>Bitcoin-Fast - Finestra di Debug</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>BitcoinFast Core</source>
-        <translation>BitcoinFast Core</translation>
+        <source>Bitcoin-Fast Core</source>
+        <translation>Bitcoin-Fast Core</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -2312,8 +2312,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the BitcoinFast debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Apri il file di debug di BitcoinFast dalla directory corrente. Questa operazione puo&apos; impiegare qualche secondo se il file e&apos; molto grande.</translation>
+        <source>Open the Bitcoin-Fast debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Apri il file di debug di Bitcoin-Fast dalla directory corrente. Questa operazione puo&apos; impiegare qualche secondo se il file e&apos; molto grande.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2360,8 +2360,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+66"/>
-        <source>Welcome to the BitcoinFast RPC console.</source>
-        <translation>Benvenuto nella RPC console di BitcoinFast.</translation>
+        <source>Welcome to the Bitcoin-Fast RPC console.</source>
+        <translation>Benvenuto nella RPC console di Bitcoin-Fast.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2559,7 +2559,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a BitcoinFast address</source>
+        <source>Enter a Bitcoin-Fast address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2733,20 +2733,20 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a valid BitcoinFast address</source>
-        <translation>Inserire un valido indirizzo di BitcoinFast</translation>
+        <source>Enter a valid Bitcoin-Fast address</source>
+        <translation>Inserire un valido indirizzo di Bitcoin-Fast</translation>
     </message>
 </context>
 <context>
     <name>ShutdownWindow</name>
     <message>
         <location filename="../bitcoin.cpp" line="-102"/>
-        <source>BitcoinFast</source>
-        <translation type="unfinished">BitcoinFast</translation>
+        <source>Bitcoin-Fast</source>
+        <translation type="unfinished">Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>BitcoinFast Wallet is shutting down, please wait...</source>
+        <source>Bitcoin-Fast Wallet is shutting down, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2816,8 +2816,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this BitcoinFast address</source>
-        <translation>Firma messaggio per comprovare la proprieta&apos; di questo indirizzo BitcoinFast</translation>
+        <source>Sign the message to prove you own this Bitcoin-Fast address</source>
+        <translation>Firma messaggio per comprovare la proprieta&apos; di questo indirizzo Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2852,8 +2852,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified BitcoinFast address</source>
-        <translation>Verifica il messaggio per assicurarti che sia stato firmato con l&apos;indirizzo BitcoinFast specificato</translation>
+        <source>Verify the message to ensure it was signed with the specified Bitcoin-Fast address</source>
+        <translation>Verifica il messaggio per assicurarti che sia stato firmato con l&apos;indirizzo Bitcoin-Fast specificato</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2863,8 +2863,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a valid BitcoinFast address</source>
-        <translation>Inserire un indirizzo valido di BitcoinFast</translation>
+        <source>Enter a valid Bitcoin-Fast address</source>
+        <translation>Inserire un indirizzo valido di Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2873,8 +2873,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter BitcoinFast signature</source>
-        <translation>Inserire firma BitcoinFast</translation>
+        <source>Enter Bitcoin-Fast signature</source>
+        <translation>Inserire firma Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2997,7 +2997,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+64"/>
-        <source>Downloading themes from http://bitcoinfast.co...</source>
+        <source>Downloading themes from http://bitcoin-fast.co...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3051,8 +3051,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../forms/splash.ui" line="+31"/>
         <location filename="../splash.cpp" line="+13"/>
-        <source>BitcoinFast</source>
-        <translation type="unfinished">BitcoinFast</translation>
+        <source>Bitcoin-Fast</source>
+        <translation type="unfinished">Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+26"/>
@@ -3573,8 +3573,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+126"/>
-        <source>BitcoinFast version</source>
-        <translation>BitcoinFast versione</translation>
+        <source>Bitcoin-Fast version</source>
+        <translation>Bitcoin-Fast versione</translation>
     </message>
     <message>
         <location line="+39"/>
@@ -3602,13 +3602,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+23"/>
-        <source>Specify configuration file (default: BitcoinFast.conf)</source>
-        <translation>Specifica un file di configurazione (default: BitcoinFast.conf)</translation>
+        <source>Specify configuration file (default: Bitcoin-Fast.conf)</source>
+        <translation>Specifica un file di configurazione (default: Bitcoin-Fast.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: BitcoinFastd.pid)</source>
-        <translation>Specifica un pid file (default: BitcoinFastd.pid)</translation>
+        <source>Specify pid file (default: Bitcoin-Fastd.pid)</source>
+        <translation>Specifica un pid file (default: Bitcoin-Fastd.pid)</translation>
     </message>
     <message>
         <location line="-50"/>
@@ -3769,8 +3769,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong BitcoinFast will not work properly.</source>
-        <translation>Attenzione: Si prega di controllare che data e ora del PC siano corrette! Se l&apos;orologio non e&apos; corretto BitcoinFast non funzionera&apos; regolarmente.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bitcoin-Fast will not work properly.</source>
+        <translation>Attenzione: Si prega di controllare che data e ora del PC siano corrette! Se l&apos;orologio non e&apos; corretto Bitcoin-Fast non funzionera&apos; regolarmente.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3869,7 +3869,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or BitcoinFastd</source>
+        <source>Send command to -server or Bitcoin-Fastd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4045,13 +4045,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-131"/>
-        <source>Cannot obtain a lock on data directory %s.  BitcoinFast is probably already running.</source>
-        <translation>Impossibile ottenere un blocco per la directory %s.  BitcoinFast e&apos; probabilmente gia&apos; in esecuzione.</translation>
+        <source>Cannot obtain a lock on data directory %s.  Bitcoin-Fast is probably already running.</source>
+        <translation>Impossibile ottenere un blocco per la directory %s.  Bitcoin-Fast e&apos; probabilmente gia&apos; in esecuzione.</translation>
     </message>
     <message>
         <location line="+101"/>
-        <source>BitcoinFast</source>
-        <translation>BitcoinFast</translation>
+        <source>Bitcoin-Fast</source>
+        <translation>Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+33"/>
@@ -4085,13 +4085,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of BitcoinFast</source>
-        <translation>Errore caricamento file wallet.dat: Il portafoglio richiede una nuova versione di BitcoinFast</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin-Fast</source>
+        <translation>Errore caricamento file wallet.dat: Il portafoglio richiede una nuova versione di Bitcoin-Fast</translation>
     </message>
     <message>
         <location line="+77"/>
-        <source>Wallet needed to be rewritten: restart BitcoinFast to complete</source>
-        <translation>Il portafoglio deve essere ricreato: riavviare BitcoinFast per completare l&apos;operazione</translation>
+        <source>Wallet needed to be rewritten: restart Bitcoin-Fast to complete</source>
+        <translation>Il portafoglio deve essere ricreato: riavviare Bitcoin-Fast per completare l&apos;operazione</translation>
     </message>
     <message>
         <location line="-79"/>
@@ -4160,8 +4160,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-22"/>
-        <source>Unable to bind to %s on this computer. BitcoinFast is probably already running.</source>
-        <translation>Impossibile linkare %s su questo computer. BitcoinFast e&apos; probabilmente gia&apos; in esecuzione.</translation>
+        <source>Unable to bind to %s on this computer. Bitcoin-Fast is probably already running.</source>
+        <translation>Impossibile linkare %s su questo computer. Bitcoin-Fast e&apos; probabilmente gia&apos; in esecuzione.</translation>
     </message>
     <message>
         <location line="+50"/>

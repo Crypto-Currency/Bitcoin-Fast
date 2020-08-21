@@ -1,5 +1,5 @@
 ---
-name: "bitcoinfast-deps"
+name: "bitcoin-fast-deps"
 suites:
 - "precise"
 architectures:

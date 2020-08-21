@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = bitcoinfast-qt
+TARGET = bitcoin-fast-qt
 VERSION = 5.1.0.1
 INCLUDEPATH += src src/json src/qt /usr/include/libdb4
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE BOOST_ASIO_ENABLE_OLD_SERVICES
@@ -369,7 +369,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "bitcoinfastt-qt"
+macx:TARGET = "bitcoin-fast-qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

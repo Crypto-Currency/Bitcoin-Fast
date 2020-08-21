@@ -89,7 +89,7 @@ map<uint256, map<uint256, CDataStream*> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "BitcoinFast Signed Message:\n";
+const string strMessageMagic = "Bitcoin-Fast Signed Message:\n";
 
 double dHashesPerSec;
 int64 nHPSTimerStart;
@@ -1836,8 +1836,8 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes in their
     // initial block download.
-    bool fEnforceBIP30 = true; // Always active in BitcoinFast
-    bool fStrictPayToScriptHash = true; // Always active in BitcoinFast
+    bool fEnforceBIP30 = true; // Always active in Bitcoin-Fast
+    bool fStrictPayToScriptHash = true; // Always active in Bitcoin-Fast
 
     //// issue here: it doesn't know the version
     unsigned int nTxPos;
@@ -3048,7 +3048,7 @@ bool CheckDiskSpace(uint64 nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low!");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "BitcoinFast", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "Bitcoin-Fast", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }
@@ -3147,7 +3147,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "08/18/2020 New BitcoinFast chain starts";
+        const char* pszTimestamp = "08/21/2020 New Bitcoin-Fast chain starts";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -3160,9 +3160,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1597961664;
+        block.nTime    = 1598049463;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 1577867;
+        block.nNonce   = 1394612;
 
         //// debug print
         block.print();
@@ -3171,7 +3171,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
 
-        if (false  && (block.GetHash() != hashGenesisBlock)) {
+        if (false && (block.GetHash() != hashGenesisBlock)) {
 	 
 		// This will figure out a valid hash and Nonce if you're
 		// creating a different genesis block:
@@ -3187,7 +3187,7 @@ bool LoadBlockIndex(bool fAllowNew)
 		       }
         }
 
-        assert(block.hashMerkleRoot == uint256("0xdfc0df472ccb1627ada6751d8cfabe14dba72018c172c6ae2bbac252ab670d13"));
+        assert(block.hashMerkleRoot == uint256("0x620ad1789962cf12336110287501136589c0d85310e2f89fa1bba88f6f3107f9"));
 
         //// debug print
         block.print();
@@ -3599,7 +3599,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
           vRecv >> pfrom->strSubVer;
           pfrom->cleanSubVer = SanitizeString(pfrom->strSubVer, 1);
           printf("peer connecting subver is %s",pfrom->strSubVer.c_str());
-          int iSubVer=pfrom->strSubVer.find("BitcoinFast");
+          int iSubVer=pfrom->strSubVer.find("Bitcoin-Fast");
           if(iSubVer < 1)
           {
             printf("  -  disconnecting .....\n");
@@ -3616,7 +3616,7 @@ std::string incomingver=pfrom->cleanSubVer.c_str();
 int index= incomingver.find(':');
 std::string testver=incomingver.substr(index); // first chr should be ':'
 		    if (sscanf(testver.c_str(), ":%d.%d.%d.%d", &v1, &v2, &v3, &v4) == 4)
-//		    if (sscanf(pfrom->cleanSubVer.c_str(), "BitcoinFast:%d.%d.%d.%d", &v1, &v2, &v3, &v4) == 4)
+//		    if (sscanf(pfrom->cleanSubVer.c_str(), "Bitcoin-Fast:%d.%d.%d.%d", &v1, &v2, &v3, &v4) == 4)
 		    {
 				int cVer = 
                            1000000 * v1
@@ -5193,7 +5193,7 @@ void BCFminer(CWallet *pwallet, bool fProofOfStake)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("bitcoinfast-miner");
+    RenameThread("bitcoin-fast-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);

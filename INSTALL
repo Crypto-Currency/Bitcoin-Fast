@@ -1,9 +1,9 @@
-Building BitcoinFast
+Building Bitcoin-Fast
 
-See doc/readme-qt.rst for instructions on building BitcoinFast QT,
+See doc/readme-qt.rst for instructions on building Bitcoin-Fast QT,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of BitcoinFast.
+implementation of Bitcoin-Fast.
 
-See doc/build-*.txt for instructions on building BitcoinFastd,
+See doc/build-*.txt for instructions on building Bitcoin-Fastd,
 the intended-for-services, no-graphical-interface, reference
-implementation of BitcoinFast.
+implementation of Bitcoin-Fast.

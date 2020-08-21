@@ -57,8 +57,8 @@ ShutdownWindow::ShutdownWindow(QWidget *parent, Qt::WindowFlags f):
 {
     QVBoxLayout *layout = new QVBoxLayout();
 	QLabel *l = new QLabel();
-	setWindowTitle(tr("BitcoinFast"));
-	QString s = tr("BitcoinFast Wallet is shutting down, please wait...") + "<br><br>" + tr("DO NOT shutdown the computer until this window disappears");
+	setWindowTitle(tr("Bitcoin-Fast"));
+	QString s = tr("Bitcoin-Fast Wallet is shutting down, please wait...") + "<br><br>" + tr("DO NOT shutdown the computer until this window disappears");
 	l->setText(s);
 	//l->setStyleSheet("QLabel { background-color : grey; color : black; }");
 	setStyleSheet("QWidget { background-color : lightgrey; color: black; }");
@@ -159,7 +159,7 @@ ShutdownWindow *sdwRef;
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. BitcoinFast can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Bitcoin-Fast can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
     exit(1);
 }
 
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
     {
         // This message can not be translated, as translation is not initialized yet
         // (which not yet possible because lang=XX can be overridden in bitcoin.conf in the data directory)
-        QMessageBox::critical(0, "BitcoinFast",
+        QMessageBox::critical(0, "Bitcoin-Fast",
                               QString("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
     }
@@ -195,12 +195,12 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    app.setOrganizationName("BitcoinFast");
-    app.setOrganizationDomain("BitcoinFast.su");
+    app.setOrganizationName("Bitcoin-Fast");
+    app.setOrganizationDomain("Bitcoin-Fast.su");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        app.setApplicationName("BitcoinFast-Qt-testnet");
+        app.setApplicationName("Bitcoin-Fast-Qt-testnet");
     else
-        app.setApplicationName("BitcoinFast-Qt");
+        app.setApplicationName("Bitcoin-Fast-Qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;

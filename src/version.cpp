@@ -8,16 +8,16 @@
 // Name of client reported in the 'version' message. Report the same name
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-//const std::string CLIENT_NAME("BitcoinFast");
+//const std::string CLIENT_NAME("Bitcoin-Fast");
 
   #define CLIENT_VERSION_SUFFIX   ""
 
 #if defined(__arm__)
-const std::string CLIENT_NAME("BitcoinFast-ARM");
-//#  define CLIENT_NAME "BitcoinFast-ARM"
+const std::string CLIENT_NAME("Bitcoin-Fast-ARM");
+//#  define CLIENT_NAME "Bitcoin-Fast-ARM"
 #else
-const std::string CLIENT_NAME("BitcoinFast");
-//#  define CLIENT_NAME "BitcoinFast"
+const std::string CLIENT_NAME("Bitcoin-Fast");
+//#  define CLIENT_NAME "Bitcoin-Fast"
 #endif
 
 // The following part of the code determines the CLIENT_BUILD variable.

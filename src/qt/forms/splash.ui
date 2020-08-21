@@ -28,7 +28,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>BitcoinFast</string>
+   <string>Bitcoin-Fast</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>

@@ -1,5 +1,5 @@
 ---
-name: "bitcoinfast"
+name: "bitcoin-fast"
 suites:
 - "precise"
 architectures:
@@ -46,9 +46,9 @@ script: |
   cp $OUTDIR/src/doc/README $OUTDIR
   cp $OUTDIR/src/COPYING $OUTDIR
   cd src
-  make -f makefile.unix STATIC=1 OPENSSL_INCLUDE_PATH="$INSTDIR/include" OPENSSL_LIB_PATH="$INSTDIR/lib" $MAKEOPTS bitcoinfastd USE_UPNP=0 DEBUGFLAGS=
+  make -f makefile.unix STATIC=1 OPENSSL_INCLUDE_PATH="$INSTDIR/include" OPENSSL_LIB_PATH="$INSTDIR/lib" $MAKEOPTS bitcoin-fastd USE_UPNP=0 DEBUGFLAGS=
   mkdir -p $OUTDIR/bin/$GBUILD_BITS
-  install -s bitcoinfastd $OUTDIR/bin/$GBUILD_BITS
+  install -s bitcoin-fastd $OUTDIR/bin/$GBUILD_BITS
   cd ..
   qmake INCLUDEPATH="$INSTDIR/include" LIBS="-L$INSTDIR/lib" RELEASE=1 USE_QRCODE=1
   make $MAKEOPTS

@@ -157,7 +157,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 	setMinimumWidth(850);
 	setMinimumHeight(550);
 
-    setWindowTitle(tr("BitcoinFast - Wallet  ")+QString::fromStdString(CLIENT_BUILD));
+    setWindowTitle(tr("Bitcoin-Fast - Wallet  ")+QString::fromStdString(CLIENT_BUILD));
 //  setStyleSheet("");
 //    statusBar()->setStyleSheet("QToolTip {background-color:rgb(255,233,142); color:black; border: 2px solid grey;}");
 #ifndef Q_OS_MAC
@@ -385,7 +385,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setToolTip(tr("Send coins to a BitcoinFast address"));
+    sendCoinsAction->setToolTip(tr("Send coins to a Bitcoin-Fast address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
@@ -453,14 +453,14 @@ void BitcoinGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About BitcoinFast"), this);
-    aboutAction->setToolTip(tr("Show information about BitcoinFast"));
+    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Bitcoin-Fast"), this);
+    aboutAction->setToolTip(tr("Show information about Bitcoin-Fast"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setToolTip(tr("Modify configuration options for BitcoinFast"));
+    optionsAction->setToolTip(tr("Modify configuration options for Bitcoin-Fast"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Show / Hide"), this);
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
@@ -588,7 +588,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 #endif
             if(trayIcon)
             {
-                trayIcon->setToolTip(tr("BitcoinFast client") + QString(" ") + tr("[testnet]"));
+                trayIcon->setToolTip(tr("Bitcoin-Fast client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
                 toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
@@ -649,7 +649,7 @@ void BitcoinGUI::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("BitcoinFast client"));
+    trayIcon->setToolTip(tr("Bitcoin-Fast client"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
@@ -720,7 +720,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to BitcoinFast network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Bitcoin-Fast network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
@@ -1062,7 +1062,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
         if (nValidUrisFound)
             gotoSendCoinsPage();
         else
-            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid BitcoinFast address or malformed URI parameters."));
+            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Bitcoin-Fast address or malformed URI parameters."));
     }
 
     event->acceptProposedAction();
@@ -1077,7 +1077,7 @@ void BitcoinGUI::handleURI(QString strURI)
         gotoSendCoinsPage();
     }
     else
-        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid BitcoinFast address or malformed URI parameters."));
+        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Bitcoin-Fast address or malformed URI parameters."));
 }
 
 void BitcoinGUI::setEncryptionStatus(int status)
@@ -1577,7 +1577,7 @@ void BitcoinGUI::updateMintingWeights()
 void BitcoinGUI::openConfig()
 {
   boost::filesystem::path pathConfig = GetConfigFile();
-  /* Open BitcoinFast.conf with the associated application */
+  /* Open Bitcoin-Fast.conf with the associated application */
   if (boost::filesystem::exists(pathConfig))
     QDesktopServices::openUrl(QUrl::fromLocalFile(pathConfig.string().c_str()));
   else
@@ -1586,7 +1586,7 @@ void BitcoinGUI::openConfig()
     boost::filesystem::ofstream(pathConfig.string().c_str());
     // rename to same name, also closes if open
     boost::filesystem::rename(pathConfig.string().c_str(),pathConfig.string().c_str());
-    /* Open BitcoinFast.conf with the associated application */
+    /* Open Bitcoin-Fast.conf with the associated application */
     QDesktopServices::openUrl(QUrl::fromLocalFile(pathConfig.string().c_str()));
   }
 }

@@ -1,5 +1,0 @@
-default.qss
-midnight.qss
-pnw.qss
-
-images/pnw-background.jpg

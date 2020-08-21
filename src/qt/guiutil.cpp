@@ -386,7 +386,7 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "BitcoinFast.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "Bitcoin-Fast.lnk";
 }
 
 bool GetStartOnSystemStartup()
@@ -468,7 +468,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "BitcoinFast.desktop";
+    return GetAutostartDir() / "Bitcoin-Fast.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -509,7 +509,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=BitcoinFast\n";
+        optionFile << "Name=Bitcoin-Fast\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -530,10 +530,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("BitcoinFast-Qt") + " " + tr("version") + " " +
+    header = tr("Bitcoin-Fast-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  BitcoinFast-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  Bitcoin-Fast-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -542,7 +542,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("BitcoinFast-Qt"));
+    setWindowTitle(tr("Bitcoin-Fast-Qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));

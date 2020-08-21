@@ -61,8 +61,8 @@ void Shutdown(void* parg)
     static bool fTaken;
 
     // Make this thread recognisable as the shutdown thread
-	// By Simone: changed the thread name to bitcoinfast- instead of bitcoin-
-    RenameThread("bitcoinfast-shutoff");
+	// By Simone: changed the thread name to bitcoin-fast- instead of bitcoin-
+    RenameThread("bitcoin-fast-shutoff");
 
     bool fFirstThread = false;
     {
@@ -90,7 +90,7 @@ void Shutdown(void* parg)
         delete pwalletMain;
         NewThread(ExitTimeout, NULL);
         Sleep(50);
-        printf("BitcoinFast exited\n\n");
+        printf("Bitcoin-Fast exited\n\n");
         fExit = true;
 		fShutdown = false;
 
@@ -173,12 +173,12 @@ bool AppInit(int argc, char* argv[])
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitcoind / RPC client
-            std::string strUsage = _("BitcoinFast version") + " " + FormatFullVersion() + "\n\n" +
+            std::string strUsage = _("Bitcoin-Fast version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  BitcoinFastd [options]                     " + "\n" +
-                  "  BitcoinFastd [options] <command> [params]  " + _("Send command to -server or BitcoinFastd") + "\n" +
-                  "  BitcoinFastd [options] help                " + _("List commands") + "\n" +
-                  "  BitcoinFastd [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  Bitcoin-Fastd [options]                     " + "\n" +
+                  "  Bitcoin-Fastd [options] <command> [params]  " + _("Send command to -server or Bitcoin-Fastd") + "\n" +
+                  "  Bitcoin-Fastd [options] help                " + _("List commands") + "\n" +
+                  "  Bitcoin-Fastd [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -188,7 +188,7 @@ bool AppInit(int argc, char* argv[])
 
         // Command-line RPC
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "BitcoinFast:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "Bitcoin-Fast:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -228,13 +228,13 @@ int main(int argc, char* argv[])
 
 bool static InitError(const std::string &str)
 {
-    uiInterface.ThreadSafeMessageBox(str, _("BitcoinFast"), CClientUIInterface::OK | CClientUIInterface::MODAL);
+    uiInterface.ThreadSafeMessageBox(str, _("Bitcoin-Fast"), CClientUIInterface::OK | CClientUIInterface::MODAL);
     return false;
 }
 
 bool static InitWarning(const std::string &str)
 {
-    uiInterface.ThreadSafeMessageBox(str, _("BitcoinFast"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+    uiInterface.ThreadSafeMessageBox(str, _("Bitcoin-Fast"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
     return true;
 }
 
@@ -256,8 +256,8 @@ std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
-        "  -conf=<file>           " + _("Specify configuration file (default: BitcoinFast.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: BitcoinFastd.pid)") + "\n" +
+        "  -conf=<file>           " + _("Specify configuration file (default: Bitcoin-Fast.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: Bitcoin-Fastd.pid)") + "\n" +
         "  -gen                   " + _("Generate coins") + "\n" +
         "  -gen=0                 " + _("Don't generate coins") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
@@ -574,7 +574,7 @@ bool AppInit2()
     if (file) fclose(file);
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s.  BitcoinFast is probably already running."), strDataDir.c_str()));
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s.  Bitcoin-Fast is probably already running."), strDataDir.c_str()));
 
 #if !defined(WIN32) && !defined(QT_GUI)
     if (fDaemon)
@@ -602,7 +602,7 @@ bool AppInit2()
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    printf("BitcoinFast version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
+    printf("Bitcoin-Fast version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
     printf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
     if (!fLogTimestamps)
         printf("Startup time: %s\n", DateTimeStrFormat("%x %H:%M:%S", GetTime()).c_str());
@@ -634,7 +634,7 @@ bool AppInit2()
 	}
 
     if (fDaemon)
-        fprintf(stdout, "BitcoinFast server starting\n");
+        fprintf(stdout, "Bitcoin-Fast server starting\n");
 
     int64 nStart;
 
@@ -666,7 +666,7 @@ bool AppInit2()
                                      " Original wallet.dat saved as wallet.{timestamp}.bak in %s; if"
                                      " your balance or transactions are incorrect you should"
                                      " restore from a backup."), strDataDir.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("BitcoinFast"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            uiInterface.ThreadSafeMessageBox(msg, _("Bitcoin-Fast"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         }
         if (r == CDBEnv::RECOVER_FAIL)
             return InitError(_("wallet.dat corrupt, salvage failed"));
@@ -921,13 +921,13 @@ bool AppInit2()
         {
             string msg(_("Warning: error reading wallet.dat! All keys read correctly, but transaction data"
                          " or address book entries might be missing or incorrect."));
-            uiInterface.ThreadSafeMessageBox(msg, _("BitcoinFast"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            uiInterface.ThreadSafeMessageBox(msg, _("Bitcoin-Fast"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         }
         else if (nLoadWalletRet == DB_TOO_NEW)
-            strErrors << _("Error loading wallet.dat: Wallet requires newer version of BitcoinFast") << "\n";
+            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Bitcoin-Fast") << "\n";
         else if (nLoadWalletRet == DB_NEED_REWRITE)
         {
-            strErrors << _("Wallet needed to be rewritten: restart BitcoinFast to complete") << "\n";
+            strErrors << _("Wallet needed to be rewritten: restart Bitcoin-Fast to complete") << "\n";
             printf("%s", strErrors.str().c_str());
             return InitError(strErrors.str());
         }

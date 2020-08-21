@@ -39,7 +39,7 @@ SkinsPage::SkinsPage(QWidget *parent) : QWidget(parent), ui(new Ui::SkinsPage)
   QPixmap downloadPixmap(":/icons/gears");
   QIcon downloadButtonIcon(downloadPixmap);
   downloadButton->setIcon(downloadButtonIcon);
-  QSettings settings("BitcoinFast", "settings");
+  QSettings settings("Bitcoin-Fast", "settings");
   inipath=GetDataDir().string().c_str();
   inipath=inipath+"/themes/";
   loadSettings();
@@ -243,13 +243,13 @@ void SkinsPage::optionChanged()
 
 void SkinsPage::saveSettings()
 {
-  QSettings settings("BitcoinFast", "settings");
+  QSettings settings("Bitcoin-Fast", "settings");
   settings.setValue("filename", inifname);
 }
 
 void SkinsPage::loadSettings()
 {
-  QSettings settings("BitcoinFast", "settings");
+  QSettings settings("Bitcoin-Fast", "settings");
   inifname=settings.value("filename", "").toString();
 }
  
@@ -279,7 +279,7 @@ void SkinsPage::resizeEvent(QResizeEvent* event)
 void SkinsPage::getlist()
 {
   // show a downloading message in status bar
-  statusLabel->setText("<b>" + tr("Downloading themes from https://bitcoinfast.co...") + "</b>");
+  statusLabel->setText("<b>" + tr("Downloading themes from https://bitcoin-fast.co...") + "</b>");
   latestNetError = "";
 
   // first, let's disable the download button (triple-clicks fanatics !)
@@ -288,7 +288,7 @@ void SkinsPage::getlist()
   connect(&manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(getListFinished(QNetworkReply*)));
 
   QNetworkRequest request;
-  request.setUrl(QUrl("https://bitcoinfast.co/themes/list.txt"));
+  request.setUrl(QUrl("https://bitcoin-fast.co/themes/list.txt"));
   request.setRawHeader("User-Agent", "Wallet theme request");
 
   networkTimer->start();
@@ -313,7 +313,7 @@ void SkinsPage::checkForUpdates()
 // connect the event and launch it
 	connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(checkForUpdatesCore(QNetworkReply*)));
 	QNetworkRequest request;
-	request.setUrl(QUrl("https://bitcoinfast.co/themes/list.txt"));
+	request.setUrl(QUrl("https://bitcoin-fast.co/themes/list.txt"));
 	request.setRawHeader("User-Agent", "Wallet theme request");
 	networkTimer->start();
 	manager.get(request);
@@ -331,7 +331,7 @@ void SkinsPage::checkForUpdatesCore(QNetworkReply* reply)
 	QCryptographicHash md5_l(QCryptographicHash::Md5);
 
 // calculate the md5 of remote and local files
-	if (netHandleError(reply, "https://bitcoinfast.co/themes/list.txt"))
+	if (netHandleError(reply, "https://bitcoin-fast.co/themes/list.txt"))
 	{
 
 	// get the remote MD5
@@ -400,7 +400,7 @@ bool SkinsPage::netHandleError(QNetworkReply* reply, QString urlDownload)
 
 void SkinsPage::getListFinished(QNetworkReply* reply)
 {
-	if (netHandleError(reply, "https://bitcoinfast.co/themes/list.txt"))
+	if (netHandleError(reply, "https://bitcoin-fast.co/themes/list.txt"))
 	{
 		disconnect(&manager, SIGNAL(finished(QNetworkReply*)), 0, 0);  
 		connect(&manager, SIGNAL(finished(QNetworkReply*)), SLOT(downloadFinished(QNetworkReply*)));
@@ -409,7 +409,7 @@ void SkinsPage::getListFinished(QNetworkReply* reply)
 		QString line;
 
 	// saves also the descriptor, will be used to check for an new version
-		download((QString)"https://bitcoinfast.co/themes/list.txt");
+		download((QString)"https://bitcoin-fast.co/themes/list.txt");
 		for (int i = 0; i < list.count(); i++)
 		{
 			line=list.at(i).toLocal8Bit().constData();
@@ -430,7 +430,7 @@ void SkinsPage::getListFinished(QNetworkReply* reply)
 				}
 				else if (!line.startsWith("#"))			// by Simone: added comment lines, skip them
 				{  
-					download("https://bitcoinfast.co/themes/" + line);
+					download("https://bitcoin-fast.co/themes/" + line);
 				}
 			}
 		}

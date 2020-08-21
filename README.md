@@ -1,4 +1,4 @@
-<b>BitcoinFast V4.0.1</b> <br>
+<b>Bitcoin-Fast V4.0.1</b> <br>
 <br>
 For detailed changes list, see file changelog.txt
 <br>
@@ -18,7 +18,7 @@ xxx. nn, 2020
 
 <br>
 <br>
-web site https://bitcoinfast.co/<br>
+web site https://bitcoin-fast.co/<br>
 explorer http://bcf.altcoinwarz.com/<br>
 <br>
 linux-QT and macOS-QT wallets can be downloaded from the web site<br>

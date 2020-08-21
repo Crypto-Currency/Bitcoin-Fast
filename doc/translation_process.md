@@ -7,7 +7,7 @@ handle those translations.
 Files and Folders
 -----------------
 
-### bitcoinfast-qt.pro
+### bitcoin-fast-qt.pro
 
 This file takes care of generating `.qm` files from `.ts` files. It is mostly
 automated.
