@@ -1524,11 +1524,12 @@ unsigned int pnSeed[] =
 
 void DumpAddresses()
 {
-    int64 nStart = GetTimeMillis();
+  int64 nStart = GetTimeMillis();
 
-    CAddrDB adb;
-    adb.Write(addrman);
+  CAddrDB adb;
+  adb.Write(addrman);
 
+  if(fDebug)
     printf("Flushed %d addresses to peers.dat  %" PRI64d "ms\n",
            addrman.size(), GetTimeMillis() - nStart);
 }

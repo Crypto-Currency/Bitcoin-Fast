@@ -2917,7 +2917,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock, bool lessAggressive)
 	}
 
     // ppcoin: if responsible for sync-checkpoint send it
-    printf("ProcessBlock: ACCEPTED\n");
+    //printf("ProcessBlock: ACCEPTED\n");
     if (pfrom && !CSyncCheckpoint::strMasterPrivKey.empty())
 	    Checkpoints::SendSyncCheckpoint(Checkpoints::AutoSelectSyncCheckpoint());
 
@@ -3915,7 +3915,7 @@ std::string testver=incomingver.substr(index); // first chr should be ':'
         {
             if (fShutdown)
                 return true;
-            if (fDebugNet || (vInv.size() == 1))
+            if (fDebugNet && (vInv.size() == 1))
                 printf("received getdata for: %s\n", inv.ToString().c_str());
 
             if (inv.type == MSG_BLOCK)
@@ -5149,11 +5149,13 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return error("BCFminer : proof-of-work not meeting target");
 
     //// debug print
-    printf("BCFminer:\n");
-    printf("new block found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
-    pblock->print();
-    printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
-
+    if(fDebug)
+    {
+      printf("BCFminer:\n");
+      printf("new block found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
+      pblock->print();
+      printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
+    }
     // Found a solution
     {
         LOCK(cs_main);
@@ -5250,7 +5252,8 @@ void BCFminer(CWallet *pwallet, bool fProofOfStake)
                     continue;
                 }
                 strMintWarning = "";
-                printf("CPUMiner : proof-of-stake block found %s\n", pblock->GetHash().ToString().c_str()); 
+                if(fDebug)
+                  printf("CPUMiner : proof-of-stake block found %s\n", pblock->GetHash().ToString().c_str()); 
                 SetThreadPriority(THREAD_PRIORITY_NORMAL);
                 CheckWork(pblock.get(), *pwalletMain, reservekey);
                 SetThreadPriority(THREAD_PRIORITY_LOWEST);
@@ -5516,12 +5519,13 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
 
     nRewardCoinYear = yearpercent * COIN;
   }
-	int64 nSubsidy = nCoinAge * nRewardCoinYear / 365;
-	if (fDebug && GetBoolArg("-printcreation"))
-		printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRI64d " nBits=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nBits);
+  int64 nSubsidy = nCoinAge * nRewardCoinYear / 365;
+  if (fDebug && GetBoolArg("-printcreation"))
+    printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRI64d " nBits=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nBits);
 
-//debug testing
-printf("GetProofOfStakeReward: height %d nRewardCoinYear %d\n",nHeight,nRewardCoinYear);
-    return nSubsidy;
+  if(fDebug)
+    printf("GetProofOfStakeReward: height %d nRewardCoinYear %d\n",nHeight,nRewardCoinYear);
+
+  return nSubsidy;
 }
 
