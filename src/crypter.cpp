@@ -7,7 +7,7 @@
 #include <vector>
 #include <string>
 #ifdef WIN32
-#include <linux.h>
+#include <windows.h>
 #endif
 
 #include "crypter.h"
