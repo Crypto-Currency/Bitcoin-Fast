@@ -1,6 +1,6 @@
-IDI_ICON1 ICON DISCARDABLE "icons/Bitcoin-Fast.ico"
+IDI_ICON1 ICON DISCARDABLE "icons/BitcoinFast.ico"
 
-#include <linux.h>             // needed for VERSIONINFO
+#include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
 
 #define VER_PRODUCTVERSION     CLIENT_VERSION_MAJOR,CLIENT_VERSION_MINOR,CLIENT_VERSION_REVISION,CLIENT_VERSION_BUILD
