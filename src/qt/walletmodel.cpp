@@ -66,6 +66,7 @@ int WalletModel::getNumTransactions() const
     return numTransactions;
 }
 
+
 void WalletModel::updateStatus()
 {
     EncryptionStatus newEncryptionStatus = getEncryptionStatus();
@@ -80,6 +81,7 @@ void WalletModel::pollBalanceChanged()
     {
         // Balance and number of transactions might have changed
         cachedNumBlocks = nBestHeight;
+        emit numHeightChanged(cachedNumBlocks);
         checkBalanceChanged();
     }
 }
