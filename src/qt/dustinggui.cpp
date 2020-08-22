@@ -1,6 +1,7 @@
 #include "dustinggui.h"
 #include "ui_dustinggui.h"
 #include "util.h"
+#include "main.h"
 
 #include "init.h"
 #include "bitcoinunits.h"
@@ -389,7 +390,7 @@ void DustingGui::compactBlocks()
 		rcp.amount = selectionSum;
 // this is safe value to not incurr in "not enough for fee" errors, in any case it will be credited back as "change"
 //		rcp.amount -= 100;
-		rcp.amount -= 10000;
+		rcp.amount -= MIN_TX_FEE;
 		rcp.label = "[DUSTING]";
 		rcp.address = ui->dustAddress->text();
 		recipients.append(rcp);
