@@ -1087,7 +1087,7 @@ Orphans removed: %3
         <location line="+80"/>
         <location line="+86"/>
         <location line="+38"/>
-        <source>0.00 MINT</source>
+        <source>0.00 BCF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2470,7 +2470,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+86"/>
         <location line="+86"/>
         <location line="+32"/>
-        <source>0.00 MINT</source>
+        <source>0.00 BCF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2540,12 +2540,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+16"/>
-        <source>123.456 MINT</source>
+        <source>123.456 VCF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>123.456 BTC</source>
-        <translation type="vanished">123.456 BTC</translation>
+        <source>123.456 BCF</source>
+        <translation type="vanished">123.456 BCF</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -3207,16 +3207,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>Generated coins must mature 50 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation type="unfinished">I coins generati devono maturare 520 blocchi prima che possano essere utilizzati. Quando avete generato questo blocco, e&apos; stato trasmesso in rete per essere aggiunto ai blocchi. Qualora l&apos;aggiunta dovesse fallire, il suo stato cambiera&apos; in &quot;non accettato&quot; e non sara&apos; utilizzabile. Questo puo&apos; accadere sporadicamente se un altro nodo genera un blocco entro qualche secondo dal vostro. {50 ?}</translation>
+        <source>Generated coins must mature 30 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation type="unfinished">I coins generati devono maturare 30 blocchi prima che possano essere utilizzati. Quando avete generato questo blocco, e&apos; stato trasmesso in rete per essere aggiunto ai blocchi. Qualora l&apos;aggiunta dovesse fallire, il suo stato cambiera&apos; in &quot;non accettato&quot; e non sara&apos; utilizzabile. Questo puo&apos; accadere sporadicamente se un altro nodo genera un blocco entro qualche secondo dal vostro. {50 ?}</translation>
     </message>
     <message>
-        <source>Generated coins must mature 520 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation type="vanished">I coins generati devono maturare 520 blocchi prima che possano essere utilizzati. Quando avete generato questo blocco, e&apos; stato trasmesso in rete per essere aggiunto ai blocchi. Qualora l&apos;aggiunta dovesse fallire, il suo stato cambiera&apos; in &quot;non accettato&quot; e non sara&apos; utilizzabile. Questo puo&apos; accadere sporadicamente se un altro nodo genera un blocco entro qualche secondo dal vostro.</translation>
+        <source>Generated coins must mature 30 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation type="vanished">I coins generati devono maturare 30 blocchi prima che possano essere utilizzati. Quando avete generato questo blocco, e&apos; stato trasmesso in rete per essere aggiunto ai blocchi. Qualora l&apos;aggiunta dovesse fallire, il suo stato cambiera&apos; in &quot;non accettato&quot; e non sara&apos; utilizzabile. Questo puo&apos; accadere sporadicamente se un altro nodo genera un blocco entro qualche secondo dal vostro.</translation>
     </message>
     <message>
-        <source>Staked coins must wait 520 blocks before they can return to balance and be spent.  When you generated this proof-of-stake block, it was broadcast to the network to be added to the block chain.  If it fails to get into the chain, it will change to \&quot;not accepted\&quot; and not be a valid stake.  This may occasionally happen if another node generates a proof-of-stake block within a few seconds of yours.</source>
-        <translation type="vanished">I coins in stake devono attendere 520 blocchi prima che possano ritornare nel bilancio ed essere utilizzati. Quando avete generato questo blocco proof-of-stake, e&apos; stato trasmesso alla rete per essere aggiunto ai blocchi. Qualora l&apos;aggiunta dovesse fallire, il suo stato cambiera&apos; in &quot;non accettato&quot; e non sara&apos; utilizzabile. Questo puo&apos; accadere sporadicamente se un altro nodo genera un blocco proof-of-stake entro qualche secondo dal vostro.</translation>
+        <source>Staked coins must wait 30 blocks before they can return to balance and be spent.  When you generated this proof-of-stake block, it was broadcast to the network to be added to the block chain.  If it fails to get into the chain, it will change to \&quot;not accepted\&quot; and not be a valid stake.  This may occasionally happen if another node generates a proof-of-stake block within a few seconds of yours.</source>
+        <translation type="vanished">I coins in stake devono attendere 30 blocchi prima che possano ritornare nel bilancio ed essere utilizzati. Quando avete generato questo blocco proof-of-stake, e&apos; stato trasmesso alla rete per essere aggiunto ai blocchi. Qualora l&apos;aggiunta dovesse fallire, il suo stato cambiera&apos; in &quot;non accettato&quot; e non sara&apos; utilizzabile. Questo puo&apos; accadere sporadicamente se un altro nodo genera un blocco proof-of-stake entro qualche secondo dal vostro.</translation>
     </message>
     <message>
         <location line="+7"/>

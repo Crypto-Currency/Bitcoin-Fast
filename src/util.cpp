@@ -1323,7 +1323,7 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 {
     std::ostringstream ss;
     ss << "/";
-    ss << name << (fTestNet ? "-g" : "") << ":" << FormatVersion(nClientVersion);		// by Simone: in testnet add a letter, is useful to differentiate while testing
+    ss << name << (fTestNet ? "-tn" : "") << ":" << FormatVersion(nClientVersion);		// by Simone: in testnet add a letter, is useful to differentiate while testing
     if (!comments.empty())
         ss << "(" << boost::algorithm::join(comments, "; ") << ")";
     ss << "/";
