@@ -3112,11 +3112,12 @@ bool LoadBlockIndex(bool fAllowNew)
     {
         bnProofOfStakeLimit = bnProofOfStakeLimitTestNet; // 0x00000fff PoS base target is fixed in testnet
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 0x0000ffff PoW base target is fixed in testnet
-        nStakeMinAge = 60 * 60;     // test net min age is 60 min
-        nStakeMaxAge = 60 * 60 * 7; // test net min age is 7 days
-	nModifierInterval = 60;     // test modifier interval is 1 minutes
-//        nCoinbaseMaturity = 10;   // test maturity is 10 blocks
-        nStakeTargetSpacing = 60;   // test block spacing is 60 seconds
+
+//        nStakeMinAge = 60 * 60;     // test net min age is 60 min
+//        nStakeMaxAge = 60 * 60 * 7; // test net min age is 7 days
+//	nModifierInterval = 60;     // test modifier interval is 1 minutes
+////        nCoinbaseMaturity = 10;   // test maturity is 10 blocks
+//        nStakeTargetSpacing = 60;   // test block spacing is 60 seconds
     }
 
     //
