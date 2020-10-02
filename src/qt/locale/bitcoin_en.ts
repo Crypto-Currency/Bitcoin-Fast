@@ -3622,8 +3622,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Set database disk log size in megabytes (default: 100)</translation>
     </message>
     <message>
-        <source>Listen for connections on &lt;port&gt; (default: 25671 or testnet:35673 )</source>
-        <translation type="vanished">Listen for connections on &lt;port&gt; (default: 25671 or testnet: 35673)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 25673 or testnet:35673 )</source>
+        <translation type="vanished">Listen for connections on &lt;port&gt; (default: 25673 or testnet: 35673)</translation>
     </message>
     <message>
         <location line="-24"/>
@@ -3806,7 +3806,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Listen for connections on &lt;port&gt; (default: 25671 or testnet: 35673)</source>
+        <source>Listen for connections on &lt;port&gt; (default: 25673 or testnet: 35673)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

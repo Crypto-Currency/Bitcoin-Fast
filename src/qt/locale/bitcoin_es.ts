@@ -3636,8 +3636,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Setta una dimensione per il log del database su disco (default: 100)</translation>
     </message>
     <message>
-        <source>Listen for connections on &lt;port&gt; (default: 25671 oppure testnet: 35673)</source>
-        <translation type="vanished">Ascolta connessioni su &lt;port&gt; (default: 25671 oppure testnet: 35673)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 25673 oppure testnet: 35673)</source>
+        <translation type="vanished">Ascolta connessioni su &lt;port&gt; (default: 25673 oppure testnet: 35673)</translation>
     </message>
     <message>
         <location line="-24"/>
@@ -3690,8 +3690,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Errore: Questa transazione richiede un fee di almeno %s per via del suo ammontare, complessita&apos; oppure perche&apos; utilizza fondi appena ricevuti</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25672 or testnet: 35674)</source>
-        <translation type="vanished">Ascolto di JSON-RPC sulla porta &lt;port&gt; (default: 25672 oppure testnet: 35674)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25674 or testnet: 35674)</source>
+        <translation type="vanished">Ascolto di JSON-RPC sulla porta &lt;port&gt; (default: 25674 oppure testnet: 35674)</translation>
     </message>
     <message>
         <location line="+36"/>
@@ -3750,8 +3750,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25672 or testnet: 35674)</source>
-        <translation type="unfinished">Ascolto di JSON-RPC sulla porta &lt;port&gt; (default: 25671 oppure testnet: 35673) {25672 ?} {35674)?}</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25674 or testnet: 35674)</source>
+        <translation type="unfinished">Ascolto di JSON-RPC sulla porta &lt;port&gt; (default: 25673 oppure testnet: 35673) {25674 ?} {35674)?}</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -3824,7 +3824,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Listen for connections on &lt;port&gt; (default: 25671 or testnet: 35673)</source>
+        <source>Listen for connections on &lt;port&gt; (default: 25673 or testnet: 35673)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
