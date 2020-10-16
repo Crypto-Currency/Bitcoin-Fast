@@ -4,16 +4,16 @@ For detailed changes list, see file changelog.txt
 <br>
 <br>
 <br>
-[ORIGINAL RELEASE]
-Nov. 29, 2014
-
-
+[ORIGINAL RELEASE]<br>
+Nov. 29, 2014<br>
+<br>
+<br>
 [NEW RELEASE]
-xxx. nn, 2020
+Oct. 16, 2020<br>
 
-  coin swap to new chain.
-  reduced max supply from 2.5B to 210M
-  annual stake reduction 1% a year, down to stable 10%
+  coin swap to new chain.<br>
+  reduced max supply from 2.5B to 210M<br>
+  annual stake 25% and reduces by 1% a year, until it gets to 10% and will stay at 10%<br>
   Protected by Paladin
 
 <br>
