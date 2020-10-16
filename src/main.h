@@ -46,8 +46,8 @@ static const int fHaveUPnP = true;
 static const int fHaveUPnP = false;
 #endif
 
-static const uint256 hashGenesisBlockOfficial("0x0000062dc67d9ee22ebaacd66673450c8652e6fb51356d10a36869bf199f530c");
-static const uint256 hashGenesisBlockTestNet("0x0000062dc67d9ee22ebaacd66673450c8652e6fb51356d10a36869bf199f530c");
+static const uint256 hashGenesisBlockOfficial("0x00000d18ddce22d271017802e362d6c22e90969fa7b29e651e9f95207ace8e54");
+static const uint256 hashGenesisBlockTestNet("0x00000d18ddce22d271017802e362d6c22e90969fa7b29e651e9f95207ace8e54");
 
 
 // by Simone: new variables that are dynamicized with PALADIN system

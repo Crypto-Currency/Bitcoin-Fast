@@ -57,7 +57,7 @@ int64 nPowReward = 0 * COIN;							// dynamic PoW reward
 unsigned int nStakeTargetSpacing = 30;					// 30 sec block spacing
 bool nPaladinOnlyClients = false;						// when enabled, all NON-PALADIN clients are rejected (also start checking rule height)
 
-int64 nChainStartTime = 1597796611;
+int64 nChainStartTime = 1602866288;
 int nCoinbaseMaturity = 30;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -3148,7 +3148,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "08/21/2020 New Bitcoin-Fast chain starts";
+        const char* pszTimestamp = "10/16/2020 New Bitcoin-Fast chain starts";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -3161,9 +3161,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1598049463;
+        block.nTime    = nChainStartTime;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 1394612;
+        block.nNonce   = 984749;
 
         //// debug print
         block.print();
@@ -3188,11 +3188,11 @@ bool LoadBlockIndex(bool fAllowNew)
 		       }
         }
 
-        assert(block.hashMerkleRoot == uint256("0x620ad1789962cf12336110287501136589c0d85310e2f89fa1bba88f6f3107f9"));
+        assert(block.hashMerkleRoot == uint256("0xd701b1e64f9ad6e9995fb3001edd4e5fb2f93a3ef2c7d52caebf03870ace3396"));
 
         //// debug print
         block.print();
-        printf("block.GetHash() == %s\n", block.GetHash().ToString().c_str());
+        printf("\n\nblock.GetHash() == %s\n", block.GetHash().ToString().c_str());
         printf("block.hashMerkleRoot == %s\n", block.hashMerkleRoot.ToString().c_str());
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
