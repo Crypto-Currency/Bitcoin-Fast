@@ -7,3 +7,7 @@ V4.0.0.1
 - Max Supply lowered from 2.5B to 420M
 - Proof-of-Stake lowers from 25% to 10%, 1% a year
 - Proof-of-Work will reduce to .1 BCF
+
+
+10/16/2020
+- generated new genesis block
