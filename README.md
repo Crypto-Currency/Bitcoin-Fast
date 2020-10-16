@@ -18,7 +18,7 @@ xxx. nn, 2020
 
 <br>
 <br>
-web site https://bitcoin-fast.co/<br>
+web site https://bitcoinfast.co/<br>
 explorer http://bcf.altcoinwarz.com/<br>
 <br>
 linux-QT and macOS-QT wallets can be downloaded from the web site<br>
