@@ -3638,7 +3638,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Установить размер лога базы данных в мегабайтах (по умолчанию: 100)</translation>
     </message>
     <message>
-        <source>Listen for connections on &lt;port&gt; (default: 25671 or testnet: 35671)</source>
+        <source>Listen for connections on &lt;port&gt; (default: 25673 or testnet: 35673)</source>
         <translation type="vanished">Принимать входящие подключения на &lt;port&gt; (по умолчанию: 44351 или 44352 в тестовой сети)</translation>
     </message>
     <message>
@@ -3692,7 +3692,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25672 or testnet: 35672)</source>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25674 or testnet: 35674)</source>
         <translation type="vanished">Прослушивать подключения JSON-RPC на &lt;порту&gt; (по умолчанию: 44350 или для testnet: 55353)</translation>
     </message>
     <message>
@@ -3762,7 +3762,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25672 or testnet: 35672)</source>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 25674 or testnet: 35674)</source>
         <translation type="unfinished">Прослушивать подключения JSON-RPC на &lt;порту&gt; (по умолчанию: 44350 или для testnet: 55353) {20802 ?} {30802)?}</translation>
     </message>
     <message>
