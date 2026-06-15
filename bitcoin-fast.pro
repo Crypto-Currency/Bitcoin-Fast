@@ -4,6 +4,7 @@ VERSION = 4.0.0.1
 
 INCLUDEPATH += src src/json src/qt build
 
+DEFINES -= USE_UPNP
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE BOOST_ASIO_ENABLE_OLD_SERVICES
 CONFIG += no_include_pwd
 CONFIG += thread -w
@@ -57,13 +58,39 @@ macx {
     DEFINES += MAC_OSX MSG_NOSIGNAL=0
     ICON = src/qt/res/icons/bitcoin.icns
     TARGET = "bitcoin-fast-qt"
-    QMAKE_CFLAGS_THREAD += -pthread
-    QMAKE_LFLAGS_THREAD += -pthread
-    QMAKE_CXXFLAGS_THREAD += -pthread
+
+    # Define a default empty prefix variable
+    DEP_PREFIX = ""
+
+    # 1. First Check: Detect MacPorts by verifying if its system binary folder exists
+    exists(/opt/local/bin/port) {
+        message("MacPorts environment detected!")
+        DEP_PREFIX = /opt/local
+    } else {
+        # 2. Second Check: Fall back to Homebrew by dynamically pulling its execution prefix
+        message("Homebrew environment or fallback detected!")
+        DEP_PREFIX = $$system(brew --prefix)
+    }
+
+    # Dynamic Include Headers Path Mapping (Using whichever manager won the check)
+    INCLUDEPATH += $$DEP_PREFIX/include
+    INCLUDEPATH += $$DEP_PREFIX/opt/boost/include
+    INCLUDEPATH += $$DEP_PREFIX/opt/openssl@3/include
+    INCLUDEPATH += $$DEP_PREFIX/opt/berkeley-db@5/include
+
+    # Dynamic Library Binary Path Mapping
+    LIBS += -L$$DEP_PREFIX/lib
+    LIBS += -L$$DEP_PREFIX/opt/boost/lib -lboost_filesystem -lboost_program_options -lboost_thread
+    LIBS += -L$$DEP_PREFIX/opt/openssl@3/lib -lcrypto -lssl
+    LIBS += -L$$DEP_PREFIX/opt/berkeley-db@5/lib -ldb_cxx
+    
     contains(RELEASE, 1) {
-        QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+        QMAKE_CXXFLAGS += -arch x86_64
+        QMAKE_LFLAGS += -arch x86_64
     }
 }
+
+
 
 # Optional Feature: QRCode Support
 contains(USE_QRCODE, 1) {
@@ -75,18 +102,18 @@ contains(USE_QRCODE, 1) {
     LIBS += -lqrencode
 }
 
-# Optional Feature: UPNP Nat Traversal (Enabled by default)
-contains(USE_UPNP, -) {
-    message(Building without UPNP support)
-} else {
-    message(Building with UPNP support)
-    count(USE_UPNP, 0) {
-        USE_UPNP=1
-    }
-    DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
-    INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
-    LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
-}
+## Optional Feature: UPNP Nat Traversal (Enabled by default)
+#contains(USE_UPNP, -) {
+#    message(Building without UPNP support)
+#} else {
+#    message(Building with UPNP support)
+#    count(USE_UPNP, 0) {
+#        USE_UPNP=1
+#    }
+#    DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
+#    INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
+#    LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
+#}
 
 # Optional Feature: DBUS Desktop Notifications
 contains(USE_DBUS, 1) {
