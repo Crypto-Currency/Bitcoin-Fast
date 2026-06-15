@@ -24,6 +24,7 @@
 #include <QHeaderView>
 
 #include <QDebug>
+using namespace boost::placeholders;
 using namespace std;
 
 

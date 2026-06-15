@@ -12,6 +12,8 @@
 
 #include <QDateTime>
 #include <QTimer>
+using namespace boost::placeholders;
+
 
 static const int64 nClientStartupTime = GetTime();
 double GetPoSKernelPS(const CBlockIndex* blockindex = NULL);
