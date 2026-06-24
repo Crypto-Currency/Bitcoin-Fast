@@ -24,6 +24,8 @@ using namespace boost;
 extern CClientUIInterface uiInterface;
 
 unsigned int nWalletDBUpdated;
+unsigned int loadProgress;     
+char pString[256];
 
 // by Simone: extend the class for conversion for >= 4.1.0.1
 class CDiskBlockIndexV3Conv : public CDiskBlockIndexV3
@@ -958,7 +960,6 @@ bool CBlkDB::LoadBlockIndex()
     CBlockIndex* pindexFork = NULL;
     map<pair<unsigned int, unsigned int>, CBlockIndex*> mapBlockPos;
 
-
     for (CBlockIndex* pindex = pindexBest; pindex && pindex->pprev; pindex = pindex->pprev)
     {
     tempcount++;
@@ -1124,6 +1125,8 @@ bool CBlkDB::LoadBlockIndexGuts()
 	loading_process:
 
     // loop control variables
+    unsigned int tempcount=0;
+//    unsigned int steptemp=0;
 	double ccc = 0;
 	double cnt = 0;
 	int oldProgress = -1;
@@ -1164,7 +1167,7 @@ bool CBlkDB::LoadBlockIndexGuts()
 				progress = 100;
 			}
 			if (progress != oldProgress) {
-				char pString[256];
+//				char pString[256];
 				if (needUpgradeV3)
 					sprintf(pString, (_("Upgrading index (%d%%)... [DO NOT INTERRUPT]")).c_str(), progress);
 				else
@@ -1173,6 +1176,7 @@ bool CBlkDB::LoadBlockIndexGuts()
 				uiInterface.InitMessage(pString);
 		#endif
 				oldProgress = progress;
+              loadProgress = progress;        // store for global use
 			}
 			ccc += 1.0;
 
@@ -1247,6 +1251,27 @@ bool CBlkDB::LoadBlockIndexGuts()
 				    pindexNew->nTime          = diskindexPrior41.nTime;
 				    pindexNew->nBits          = diskindexPrior41.nBits;
 				    pindexNew->nNonce         = diskindexPrior41.nNonce;
+
+            ccc++;
+            tempcount ++;
+            if(tempcount>=1000)
+            {
+              tempcount=0;
+
+              int progress = (ccc / cnt) * 100;
+              if (progress > 100)
+              {
+                progress = 100;
+              }
+              if (progress != oldProgress)
+              {
+                loadProgress = progress;        // store for global use
+                oldProgress = progress;
+              }
+
+              sprintf(pString, _("loading blockchain  (%d\%)").c_str(),progress);
+              uiInterface.InitMessage(pString);
+            }
 
     // watch for genesis block
 				    if (pindexGenesisBlock == NULL && hash == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))
