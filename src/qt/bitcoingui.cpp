@@ -235,6 +235,10 @@ menuBar()->setNativeMenuBar(false);// menubar on form instead
     labelMintingIcon = new QLabel();
     labelConnectionsIcon = new QLabel();
     labelBlocksIcon = new QLabel();
+    labelBlocksIcon->setAttribute(Qt::WA_TranslucentBackground, true);
+    labelBlocksIcon->setStyleSheet("background: transparent; border: none;");
+    labelBlocksIcon->setAutoFillBackground(false);
+
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelOnlineIcon);
     frameBlocksLayout->addStretch();
@@ -280,7 +284,7 @@ menuBar()->setNativeMenuBar(false);// menubar on form instead
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
 
-    syncIconMovie = new QMovie(":/movies/update_spinner", "mng", this);
+    syncIconMovie = new QMovie(":/movies/update_spinner", "webp", this);
 	// this->setStyleSheet("background-color: #ceffee;");
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page

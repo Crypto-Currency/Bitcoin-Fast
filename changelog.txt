@@ -1,5 +1,12 @@
 Change log.
 
+v4.1.0.1 - June 2026
+- update to Ubuntu 22.04
+- update boost 1.74
+- update OpenSSL 3.0.2 15
+- update MAC build to Sequoia
+- update themes
+
 V4.0.0.1
 - new wallet with additional functions including Paladin.
   most noticible addition is dusting function

@@ -18,8 +18,14 @@ CODECFORTR = UTF-8
 # System Architecture Targeting & Static Toolchain Linkage
 win32 {
     CONFIG += static
-    DEFINES += _WINDOWS WIN32 _MT
+    CONFIG += no_plugin_manifest
     
+    DEFINES += _WINDOWS WIN32 _MT
+    DEFINES += BITCOIN_NEED_QT_PLUGINS
+
+    QMAKE_LIBDIR += $$[QT_INSTALL_PLUGINS]/imageformats
+    QTPLUGIN += qwebp
+
     # Enable modern ASLR and DEP security mitigation layouts
     QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat
     
@@ -128,10 +134,6 @@ contains(FIRST_CLASS_MESSAGING, 1) {
     DEFINES += FIRST_CLASS_MESSAGING
 }
 
-contains(BITCOIN_NEED_QT_PLUGINS, 1) {
-    DEFINES += BITCOIN_NEED_QT_PLUGINS
-    QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
-}
 
 # Optional Unit Testing Mechanics
 contains(BITCOIN_QT_TEST, 1) {
