@@ -65,6 +65,18 @@ macx {
     ICON = src/qt/res/icons/bitcoin.icns
     TARGET = "bitcoin-fast-qt"
 
+    # ============================================================================
+    # 1. STANDALONE STATIC WEBP INTEGRATION
+    # ============================================================================
+    # Tell the compiler to look inside your relative repo folder for WebP engine headers
+    INCLUDEPATH += $$PWD/src/qt/Webp/include
+    DEPENDPATH  += $$PWD/src/qt/Webp/include
+ 
+    # Link your local static WebP engine libraries natively out of the repository
+    LIBS += $$PWD/src/qt/Webp/lib/libwebp.a \
+            $$PWD/src/qt/Webp/lib/libsharpyuv.a
+
+
     # Define a default empty prefix variable
     DEP_PREFIX = ""
 
