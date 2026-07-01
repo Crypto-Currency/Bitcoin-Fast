@@ -153,13 +153,13 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     notificator(0),
     rpcConsole(0)
 {
-    resize(850, 550);
-	setMinimumWidth(850);
-	setMinimumHeight(550);
+  resize(850, 550);
+menuBar()->setNativeMenuBar(false);// menubar on form instead
+
+//  setMinimumWidth(850);
+//  setMinimumHeight(550);
 
     setWindowTitle(tr("Bitcoin-Fast - Wallet  ")+QString::fromStdString(CLIENT_BUILD));
-//  setStyleSheet("");
-//    statusBar()->setStyleSheet("QToolTip {background-color:rgb(255,233,142); color:black; border: 2px solid grey;}");
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
     setWindowIcon(QIcon(":icons/bitcoin"));
@@ -520,11 +520,12 @@ void BitcoinGUI::createActions()
 void BitcoinGUI::createMenuBar()
 {
 #ifdef Q_OS_MAC
-    // Create a decoupled menu bar on Mac which stays even if the window is closed
-    appMenuBar = new QMenuBar();
+  // Create a decoupled menu bar on Mac which stays even if the window is closed
+  appMenuBar = new QMenuBar();
+  setMenuBar(appMenuBar);
 #else
-    // Get the main window's menu bar on other platforms
-    appMenuBar = menuBar();
+  // Get the main window's menu bar on other platforms
+  appMenuBar = menuBar();
 #endif
 
     // Configure the menus
