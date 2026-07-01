@@ -1,40 +1,42 @@
 #!/bin/bash
-# Package the internal Qt frameworks
-macdeployqt bitcoin-fast-qt.app
+# Stop the script immediately if any individual command fails
+set -e
 
-# Forcefully pull down ALL core boost components to the local target
-FRAMEWORKS="./bitcoin-fast-qt.app/Contents/Frameworks"
-cp /usr/local/opt/boost/lib/libboost_atomic.dylib "$FRAMEWORKS/"
-cp /usr/local/opt/boost/lib/libboost_container.dylib "$FRAMEWORKS/"
-cp /usr/local/opt/boost/lib/libboost_chrono.dylib "$FRAMEWORKS/"
-cp /usr/local/opt/boost/lib/libboost_date_time.dylib "$FRAMEWORKS/"
+APP_NAME="bitcoin-fast-qt.app"
+DMG_NAME="bitcoin-fast-qt.dmg"
 
-# Grant system modifications permissions to unlock the binaries
-chmod 755 "$FRAMEWORKS"/libboost_*.dylib
+echo "===================================================="
+echo " Starting Standalone Portable Packaging for Mac... "
+echo "===================================================="
 
-# Rewrite the Internal Global ID headers of the helper dylibs themselves
-install_name_tool -id @loader_path/libboost_atomic.dylib "$FRAMEWORKS/libboost_atomic.dylib"
-install_name_tool -id @loader_path/libboost_container.dylib "$FRAMEWORKS/libboost_container.dylib"
-install_name_tool -id @loader_path/libboost_chrono.dylib "$FRAMEWORKS/libboost_chrono.dylib"
-install_name_tool -id @loader_path/libboost_date_time.dylib "$FRAMEWORKS/libboost_date_time.dylib"
+# 1. REMOVED MACDEPLOYQT AND DYLIB COPY LOOPS!
+# Your static binary completely bypasses /Contents/Frameworks/
 
+# 2. Apply a Free Ad-Hoc Code Signature
+# This signs the isolated static binary using your local worker identity,
+# preventing macOS from instantly panicking over missing signature IDs.
+echo "Applying free local ad-hoc code signature..."
+codesign --force --deep --sign - "$APP_NAME"
 
-# Route the primary libraries to find their helpers next to them inside the bundle
-install_name_tool -change /usr/local/opt/boost/lib/libboost_atomic.dylib @loader_path/libboost_atomic.dylib "$FRAMEWORKS/libboost_filesystem.dylib"
-install_name_tool -change /usr/local/opt/boost/lib/libboost_atomic.dylib @loader_path/libboost_atomic.dylib "$FRAMEWORKS/libboost_thread.dylib"
-install_name_tool -change /usr/local/opt/boost/lib/libboost_container.dylib @loader_path/libboost_container.dylib "$FRAMEWORKS/libboost_program_options.dylib"
-install_name_tool -change /usr/local/opt/boost/lib/libboost_chrono.dylib @loader_path/libboost_chrono.dylib "$FRAMEWORKS/libboost_thread.dylib"
-install_name_tool -change /usr/local/opt/boost/lib/libboost_date_time.dylib @loader_path/libboost_date_time.dylib "$FRAMEWORKS/libboost_thread.dylib"
+# 3. Clean up any stale DMG installers from prior runs
+if [ -f "$DMG_NAME" ]; then
+    echo "Clearing out old artifact..."
+    rm "$DMG_NAME"
+fi
 
-
-# Build the fancy, stylized layout using the native installer engine
+# 4. Build the fancy, stylized layout using create-dmg
+echo "Packaging into fancy distribution DMG..."
 create-dmg \
   --volname "Bitcoin-Fast Installer" \
   --background "./contrib/macdeploy/background.png" \
   --window-pos 200 120 \
   --window-size 500 340 \
   --icon-size 110 \
-  --icon "bitcoin-fast-qt.app" 115 155 \
+  --icon "$APP_NAME" 115 155 \
   --app-drop-link 385 155 \
-  "bitcoin-fast-qt.dmg" \
-  "./bitcoin-fast-qt.app"
+  "$DMG_NAME" \
+  "./$APP_NAME"
+
+echo "===================================================="
+echo " Deployed Successfully! File: $DMG_NAME              "
+echo "===================================================="
